@@ -1,16 +1,17 @@
 {
   "extends": "./tsconfig.json",
   "compilerOptions": {
-    "jsx": "react-jsx",
-    "esModuleInterop": true,
-    "types": ["jest", "@testing-library/jest-native"],
-    "moduleNameMapper": {
-      "^@/(.*)$": "<rootDir>/$1"
+    "jsx": "react",
+    "baseUrl": ".",
+    "paths": {
+      "@/*": ["src/*"],
+      "@assets/*": ["assets/*"]
     }
   },
   "include": [
-    "**/*.test.ts",
-    "**/*.test.tsx",
-    "jest.setup.js"
+    "**/*.ts",
+    "**/*.tsx",
+    "__tests__/**/*.ts",
+    "__tests__/**/*.tsx"
   ]
 } 

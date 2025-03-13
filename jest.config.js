@@ -6,13 +6,16 @@ module.exports = {
     '**/__tests__/**/*.spec.[jt]s?(x)'
   ],
   testPathIgnorePatterns: [
-    '/__tests__/e2e/'
+    '/__e2e__/',
+    '/node_modules/'
   ],
   transformIgnorePatterns: [
     'node_modules/(?!((jest-)?react-native|@react-native(-community)?)|expo(nent)?|@expo(nent)?/.*|@expo-google-fonts/.*|react-navigation|@react-navigation/.*|@unimodules/.*|unimodules|sentry-expo|native-base|react-native-svg)'
   ],
   moduleNameMapper: {
-    '^@/(.*)$': '<rootDir>/$1'
+    '^@/(.*)$': '<rootDir>/src/$1',
+    '^@assets/(.*)$': '<rootDir>/assets/$1',
+    '\\.(jpg|jpeg|png|gif|eot|otf|webp|svg|ttf|woff|woff2|mp4|webm|wav|mp3|m4a|aac|oga)$': '<rootDir>/__mocks__/fileMock.js'
   },
   globals: {
     'ts-jest': {
@@ -20,12 +23,21 @@ module.exports = {
     }
   },
   testEnvironment: 'jsdom',
-  
+  // collectCoverage: true,
+  // coverageReporters: ['text', 'lcov'],
   // collectCoverageFrom: [
-  //   '**/*.{js,jsx,ts,tsx}',
+  //   'src/**/*.{js,jsx,ts,tsx}',
+  //   '!**/*.d.ts',
   //   '!**/node_modules/**',
   //   '!**/__tests__/**',
-  //   '!**/jest.setup.js',
-  //   '!**/jest.config.js'
-  // ]
+  //   '!**/coverage/**'
+  // ],
+  // coverageThreshold: {
+  //   global: {
+  //     branches: 80,
+  //     functions: 80,
+  //     lines: 80,
+  //     statements: 80
+  //   }
+  // }
 }; 

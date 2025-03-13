@@ -2,15 +2,12 @@ import React from 'react';
 import { render } from '@testing-library/react-native';
 import LogoutScreen from '@/app/logout';
 import { useAuth } from '@/hooks/useAuth';
+import { Redirect } from 'expo-router';
 
 // Mock the dependencies
 jest.mock('@/hooks/useAuth');
-jest.mock('@supabase/supabase-js', () => ({
-  createClient: jest.fn(() => ({
-    auth: {
-      signOut: jest.fn(),
-    },
-  })),
+jest.mock('expo-router', () => ({
+  Redirect: jest.fn(() => null)
 }));
 
 describe('LogoutScreen', () => {
@@ -25,11 +22,16 @@ describe('LogoutScreen', () => {
 
   it('calls signOut when mounted', () => {
     render(<LogoutScreen />);
-    expect(mockSignOut).toHaveBeenCalled();
+    expect(mockSignOut).toHaveBeenCalledTimes(1);
   });
 
-  it('renders nothing', () => {
-    const { toJSON } = render(<LogoutScreen />);
-    expect(toJSON()).toBeNull();
+  it('renders Redirect component with correct props', () => {
+    render(<LogoutScreen />);
+    expect(Redirect).toHaveBeenCalledWith(
+      expect.objectContaining({
+        href: '/auth'
+      }),
+      expect.any(Object)
+    );
   });
 }); 
