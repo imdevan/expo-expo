@@ -16,13 +16,13 @@ Inspired by [Next Launch](https://github.com/imdevan/next-launch) and [Take Out]
 1. Install dependencies
 
    ```bash
-   npm install
+   yarn
    ```
 
 2. Start the app
 
    ```bash
-    npx expo start
+   yarn expo start
    ```
 
 In the output, you'll find options to open the app in a
