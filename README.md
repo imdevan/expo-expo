@@ -57,9 +57,11 @@ Please feel free to drop a pull request or open an issue if you'd like to contri
 - [x] Localization
 - [x] Github workflow
 - [x] Prettier + Linter Configs
+- [ ] Final-Form (or Formik) form integration
+- [ ] Zod form validation
+- [ ] Easy tailwind theme config
 - [ ] Clean up UI components
 - [ ] Abstract supabase service to be used easily with any backend
-- [ ] Easy tailwind theme config
 - [ ] Basic settings page
 - [ ] Next.js wrapper for web deployments
 - [ ] Easy deploy to web, android, and ios
