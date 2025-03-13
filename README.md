@@ -2,8 +2,8 @@
 
 # Expo, Expo! 🍔
 
-[![Tests](https://github.com/devin/expo-expo/actions/workflows/test.yml/badge.svg)](https://github.com/devin/expo-expo/actions/workflows/test.yml)
-[![codecov](https://codecov.io/gh/devin/expo-expo/graph/badge.svg)](https://codecov.io/gh/devin/expo-expo)
+[![Tests](https://github.com/imdevin/expo-expo/actions/workflows/test.yml/badge.svg)](https://github.com/imdevin/expo-expo/actions/workflows/test.yml)
+[![codecov](https://codecov.io/gh/imdevin/expo-expo/graph/badge.svg)](https://codecov.io/gh/imdevin/expo-expo)
 
 This is an [Expo](https://expo.dev) project created with [`create-expo-app`](https://www.npmjs.com/package/create-expo-app).
 
