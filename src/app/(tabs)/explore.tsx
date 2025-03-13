@@ -1,4 +1,5 @@
 import { StyleSheet, Image, Platform } from 'react-native';
+import { useTranslation } from 'react-i18next';
 
 import { Collapsible } from '@/components/Collapsible';
 import { ExternalLink } from '@/components/ExternalLink';
@@ -8,6 +9,8 @@ import { ThemedView } from '@/components/ThemedView';
 import { IconSymbol } from '@/components/ui/IconSymbol';
 
 export default function TabTwoScreen() {
+  const { t } = useTranslation();
+  
   return (
     <ParallaxScrollView
       headerBackgroundColor={{ light: '#D0D0D0', dark: '#353636' }}
@@ -20,59 +23,62 @@ export default function TabTwoScreen() {
         />
       }>
       <ThemedView style={styles.titleContainer}>
-        <ThemedText type="title">Explore</ThemedText>
+        <ThemedText type="title">{t('explore.title')}</ThemedText>
       </ThemedView>
-      <ThemedText>This app includes example code to help you get started.</ThemedText>
-      <Collapsible title="File-based routing">
+      <ThemedText style={{ marginBottom: 20 }}>{t('explore.description')}</ThemedText>
+      <Collapsible title={t('explore.sections.routing.title')}>
         <ThemedText>
-          This app has two screens:{' '}
-          <ThemedText type="defaultSemiBold">app/(tabs)/index.tsx</ThemedText> and{' '}
-          <ThemedText type="defaultSemiBold">app/(tabs)/explore.tsx</ThemedText>
+          {t('explore.sections.routing.description', {
+            screen1: <ThemedText type="defaultSemiBold">Home</ThemedText>,
+            screen2: <ThemedText type="defaultSemiBold">Explore</ThemedText>
+          })}
         </ThemedText>
         <ThemedText>
-          The layout file in <ThemedText type="defaultSemiBold">app/(tabs)/_layout.tsx</ThemedText>{' '}
-          sets up the tab navigator.
+          {t('explore.sections.routing.layout', {
+            file: <ThemedText type="defaultSemiBold">app/(tabs)/_layout.tsx</ThemedText>
+          })}
         </ThemedText>
-        <ExternalLink href="https://docs.expo.dev/router/introduction">
-          <ThemedText type="link">Learn more</ThemedText>
+        <ExternalLink href="https://docs.expo.dev/router/introduction/">
+          <ThemedText type="link">{t('explore.sections.routing.learnMore')}</ThemedText>
         </ExternalLink>
       </Collapsible>
-      <Collapsible title="Android, iOS, and web support">
+      <Collapsible title={t('explore.sections.platform.title')}>
         <ThemedText>
-          You can open this project on Android, iOS, and the web. To open the web version, press{' '}
-          <ThemedText type="defaultSemiBold">w</ThemedText> in the terminal running this project.
+          {t('explore.sections.platform.description', {
+            key: <ThemedText type="defaultSemiBold">w</ThemedText>
+          })}
         </ThemedText>
       </Collapsible>
-      <Collapsible title="Images">
+      <Collapsible title={t('explore.sections.images.title')}>
         <ThemedText>
-          For static images, you can use the <ThemedText type="defaultSemiBold">@2x</ThemedText> and{' '}
-          <ThemedText type="defaultSemiBold">@3x</ThemedText> suffixes to provide files for
-          different screen densities
+          {t('explore.sections.images.description', {
+            suffix1: <ThemedText type="defaultSemiBold">@2x</ThemedText>,
+            suffix2: <ThemedText type="defaultSemiBold">@3x</ThemedText>
+          })}
         </ThemedText>
         <Image source={require('@assets/images/react-logo.png')} style={{ alignSelf: 'center' }} />
         <ExternalLink href="https://reactnative.dev/docs/images">
-          <ThemedText type="link">Learn more</ThemedText>
+          <ThemedText type="link">{t('explore.sections.routing.learnMore')}</ThemedText>
         </ExternalLink>
       </Collapsible>
-      <Collapsible title="Custom fonts">
+      <Collapsible title={t('explore.sections.fonts.title')}>
         <ThemedText>
-          Open <ThemedText type="defaultSemiBold">app/_layout.tsx</ThemedText> to see how to load{' '}
-          <ThemedText style={{ fontFamily: 'SpaceMono' }}>
-            custom fonts such as this one.
-          </ThemedText>
+          {t('explore.sections.fonts.description', {
+            file: <ThemedText type="defaultSemiBold">app/_layout.tsx</ThemedText>
+          })}
         </ThemedText>
         <ExternalLink href="https://docs.expo.dev/versions/latest/sdk/font">
-          <ThemedText type="link">Learn more</ThemedText>
+          <ThemedText type="link">{t('explore.sections.routing.learnMore')}</ThemedText>
         </ExternalLink>
       </Collapsible>
-      <Collapsible title="Light and dark mode components">
+      <Collapsible title={t('explore.sections.themes.title')}>
         <ThemedText>
-          This template has light and dark mode support. The{' '}
-          <ThemedText type="defaultSemiBold">useColorScheme()</ThemedText> hook lets you inspect
-          what the user's current color scheme is, and so you can adjust UI colors accordingly.
+          {t('explore.sections.themes.description', {
+            hook: <ThemedText type="defaultSemiBold">useColorScheme()</ThemedText>
+          })}
         </ThemedText>
         <ExternalLink href="https://docs.expo.dev/develop/user-interface/color-themes/">
-          <ThemedText type="link">Learn more</ThemedText>
+          <ThemedText type="link">{t('explore.sections.routing.learnMore')}</ThemedText>
         </ExternalLink>
       </Collapsible>
       <Collapsible title="Animations">

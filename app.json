@@ -28,7 +28,8 @@
       "bundler": "metro"
     },
     "plugins": [
-      "expo-router"
+      "expo-router",
+      "expo-localization"
     ],
     "scheme": "expo-expo",
     "experiments": {

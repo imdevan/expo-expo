@@ -3,6 +3,7 @@ import { render, fireEvent, waitFor } from '@testing-library/react-native';
 import Auth from '@/app/auth';
 import { useAuth } from '@/hooks/useAuth';
 import { mockUser, mockRouter } from '../setup';
+import en from '@/i18n/locales/en';
 
 // Mock the dependencies
 jest.mock('@/hooks/useAuth');
@@ -24,19 +25,19 @@ describe('AuthScreen', () => {
   it('renders login form by default', () => {
     const { getByPlaceholderText, getByText } = render(<Auth />);
 
-    expect(getByPlaceholderText('Email')).toBeTruthy();
-    expect(getByPlaceholderText('Password')).toBeTruthy();
-    expect(getByText('Sign In')).toBeTruthy();
+    expect(getByPlaceholderText(en.auth.email)).toBeTruthy();
+    expect(getByPlaceholderText(en.auth.password)).toBeTruthy();
+    expect(getByText(en.auth.signIn)).toBeTruthy();
   });
 
   it('switches between login and signup modes', () => {
     const { getByText } = render(<Auth />);
 
-    fireEvent.press(getByText("Don't have an account? Sign Up"));
-    expect(getByText('Sign Up')).toBeTruthy();
+    fireEvent.press(getByText(en.auth.noAccount));
+    expect(getByText(en.auth.signUp)).toBeTruthy();
 
-    fireEvent.press(getByText('Already have an account? Sign In'));
-    expect(getByText('Sign In')).toBeTruthy();
+    fireEvent.press(getByText(en.auth.hasAccount));
+    expect(getByText(en.auth.signIn)).toBeTruthy();
   });
 
   it('handles sign in successfully', async () => {
@@ -44,9 +45,9 @@ describe('AuthScreen', () => {
 
     const { getByPlaceholderText, getByText } = render(<Auth />);
 
-    fireEvent.changeText(getByPlaceholderText('Email'), 'test@example.com');
-    fireEvent.changeText(getByPlaceholderText('Password'), 'password');
-    fireEvent.press(getByText('Sign In'));
+    fireEvent.changeText(getByPlaceholderText(en.auth.email), 'test@example.com');
+    fireEvent.changeText(getByPlaceholderText(en.auth.password), 'password');
+    fireEvent.press(getByText(en.auth.signIn));
 
     await waitFor(() => {
       expect(mockSignIn).toHaveBeenCalledWith({
@@ -67,11 +68,11 @@ describe('AuthScreen', () => {
     const { getByPlaceholderText, getByText } = render(<Auth />);
 
     // Switch to signup mode
-    fireEvent.press(getByText("Don't have an account? Sign Up"));
+    fireEvent.press(getByText(en.auth.noAccount));
 
-    fireEvent.changeText(getByPlaceholderText('Email'), 'test@example.com');
-    fireEvent.changeText(getByPlaceholderText('Password'), 'password');
-    fireEvent.press(getByText('Sign Up'));
+    fireEvent.changeText(getByPlaceholderText(en.auth.email), 'test@example.com');
+    fireEvent.changeText(getByPlaceholderText(en.auth.password), 'password');
+    fireEvent.press(getByText(en.auth.signUp));
 
     await waitFor(() => {
       expect(mockSignUp).toHaveBeenCalledWith({

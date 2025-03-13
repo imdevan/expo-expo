@@ -4,6 +4,7 @@ import { useAuth } from '@/hooks/useAuth';
 import { useRouter } from 'expo-router';
 import { ThemedText } from '@/components/ThemedText';
 import { ThemedView } from '@/components/ThemedView';
+import { useTranslation } from 'react-i18next';
 
 export default function AuthScreen() {
   const [isLogin, setIsLogin] = useState(true);
@@ -12,6 +13,7 @@ export default function AuthScreen() {
   const [shouldNavigate, setShouldNavigate] = useState(false);
   const { signIn, signUp, isLoading, error } = useAuth();
   const router = useRouter();
+  const { t } = useTranslation();
 
   useEffect(() => {
     if (shouldNavigate) {
@@ -31,13 +33,13 @@ export default function AuthScreen() {
   return (
     <ThemedView style={styles.container}>
       <ThemedText type="title" style={styles.title}>
-        {isLogin ? 'Welcome Back' : 'Create Account'}
+        {isLogin ? t('auth.welcomeBack') : t('auth.createAccount')}
       </ThemedText>
 
       <View style={styles.form}>
         <TextInput
           style={styles.input}
-          placeholder="Email"
+          placeholder={t('auth.email')}
           value={email}
           onChangeText={setEmail}
           autoCapitalize="none"
@@ -46,7 +48,7 @@ export default function AuthScreen() {
 
         <TextInput
           style={styles.input}
-          placeholder="Password"
+          placeholder={t('auth.password')}
           value={password}
           onChangeText={setPassword}
           secureTextEntry
@@ -66,7 +68,7 @@ export default function AuthScreen() {
             <ActivityIndicator testID="loading-indicator" color="#fff" />
           ) : (
             <Text style={styles.buttonText}>
-              {isLogin ? 'Sign In' : 'Sign Up'}
+              {isLogin ? t('auth.signIn') : t('auth.signUp')}
             </Text>
           )}
         </TouchableOpacity>
@@ -75,9 +77,7 @@ export default function AuthScreen() {
           style={styles.switchButton}
           onPress={() => setIsLogin(!isLogin)}>
           <ThemedText>
-            {isLogin
-              ? "Don't have an account? Sign Up"
-              : 'Already have an account? Sign In'}
+            {isLogin ? t('auth.noAccount') : t('auth.hasAccount')}
           </ThemedText>
         </TouchableOpacity>
       </View>
