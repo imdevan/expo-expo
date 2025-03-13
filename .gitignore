@@ -24,6 +24,9 @@ expo-env.d.ts
 # Playwright
 playwright-report/
 
+# Jest
+coverage/
+
 # debug
 npm-debug.*
 yarn-debug.*
