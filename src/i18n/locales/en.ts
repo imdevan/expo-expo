@@ -16,7 +16,9 @@ export default {
   home: {
     tryIt: {
       title: 'Step 1: Try it',
-      description: 'Edit {{file}} to see changes. Press {{key}} to open developer tools.',
+      description: 'Edit {{file}} to see changes.',
+      press: 'Press',
+      toOpen: 'to open developer tools.',
     },
     explore: {
       title: 'Step 2: Explore',

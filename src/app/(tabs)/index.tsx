@@ -1,5 +1,6 @@
 import { Image, StyleSheet, Platform } from 'react-native';
 import { useTranslation } from 'react-i18next';
+import React from 'react';
 
 import { HelloWave } from '@/components/HelloWave';
 import ParallaxScrollView from '@/components/ParallaxScrollView';
@@ -25,18 +26,23 @@ export default function HomeScreen() {
       <ThemedView style={styles.stepContainer}>
         <ThemedText type="subtitle">{t('home.tryIt.title')}</ThemedText>
         <ThemedText>
-          {t('home.tryIt.description', {
-            file: <ThemedText type="defaultSemiBold">app/(tabs)/index.tsx</ThemedText>,
-            key: (
-              <ThemedText type="defaultSemiBold">
-                {Platform.select({
-                  ios: 'cmd + d',
-                  android: 'cmd + m',
-                  web: 'F12'
-                })}
-              </ThemedText>
-            )
-          })}
+          {t('home.tryIt.description').split('{{file}}').map((part, index) => (
+            <React.Fragment key={index}>
+              {part}
+              {index === 0 && <ThemedText type="defaultSemiBold">app/(tabs)/index.tsx</ThemedText>}
+            </React.Fragment>
+          ))}
+          {' '}
+          {t('home.tryIt.press')}{' '}
+          <ThemedText type="defaultSemiBold">
+            {Platform.select({
+              ios: 'cmd + d',
+              android: 'cmd + m',
+              web: 'F12'
+            })}
+          </ThemedText>
+          {' '}
+          {t('home.tryIt.toOpen')}
         </ThemedText>
       </ThemedView>
       <ThemedView style={styles.stepContainer}>
