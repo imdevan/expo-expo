@@ -1,0 +1,176 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<coverage generated="1741063043259" clover="3.2.0">
+  <project timestamp="1741063043259" name="All files">
+    <metrics statements="104" coveredstatements="99" conditionals="47" coveredconditionals="46" methods="36" coveredmethods="32" elements="187" coveredelements="177" complexity="0" loc="104" ncloc="104" packages="8" files="14" classes="14"/>
+    <package name="__tests__">
+      <metrics statements="15" coveredstatements="10" conditionals="0" coveredconditionals="0" methods="5" coveredmethods="1"/>
+      <file name="setup.ts" path="/Users/devin/Documents/Projects/expo-expo/__tests__/setup.ts">
+        <metrics statements="15" coveredstatements="10" conditionals="0" coveredconditionals="0" methods="5" coveredmethods="1"/>
+        <line num="2" count="3" type="stmt"/>
+        <line num="3" count="3" type="stmt"/>
+        <line num="6" count="3" type="stmt"/>
+        <line num="7" count="0" type="stmt"/>
+        <line num="19" count="3" type="stmt"/>
+        <line num="30" count="3" type="stmt"/>
+        <line num="31" count="0" type="stmt"/>
+        <line num="34" count="0" type="stmt"/>
+        <line num="35" count="0" type="stmt"/>
+        <line num="37" count="0" type="stmt"/>
+        <line num="49" count="3" type="stmt"/>
+        <line num="50" count="3" type="stmt"/>
+        <line num="51" count="3" type="stmt"/>
+        <line num="52" count="3" type="stmt"/>
+        <line num="55" count="3" type="stmt"/>
+      </file>
+    </package>
+    <package name="app">
+      <metrics statements="17" coveredstatements="17" conditionals="14" coveredconditionals="13" methods="6" coveredmethods="6"/>
+      <file name="auth.tsx" path="/Users/devin/Documents/Projects/expo-expo/app/auth.tsx">
+        <metrics statements="13" coveredstatements="13" conditionals="14" coveredconditionals="13" methods="4" coveredmethods="4"/>
+        <line num="9" count="13" type="stmt"/>
+        <line num="10" count="13" type="stmt"/>
+        <line num="11" count="13" type="stmt"/>
+        <line num="12" count="13" type="stmt"/>
+        <line num="14" count="13" type="stmt"/>
+        <line num="15" count="2" type="stmt"/>
+        <line num="16" count="2" type="cond" truecount="2" falsecount="0"/>
+        <line num="18" count="2" type="cond" truecount="1" falsecount="1"/>
+        <line num="19" count="2" type="stmt"/>
+        <line num="20" count="2" type="stmt"/>
+        <line num="25" count="13" type="stmt"/>
+        <line num="70" count="3" type="stmt"/>
+        <line num="82" count="1" type="stmt"/>
+      </file>
+      <file name="logout.tsx" path="/Users/devin/Documents/Projects/expo-expo/app/logout.tsx">
+        <metrics statements="4" coveredstatements="4" conditionals="0" coveredconditionals="0" methods="2" coveredmethods="2"/>
+        <line num="5" count="2" type="stmt"/>
+        <line num="7" count="2" type="stmt"/>
+        <line num="8" count="2" type="stmt"/>
+        <line num="11" count="2" type="stmt"/>
+      </file>
+    </package>
+    <package name="app.(tabs)">
+      <metrics statements="2" coveredstatements="2" conditionals="0" coveredconditionals="0" methods="1" coveredmethods="1"/>
+      <file name="index.tsx" path="/Users/devin/Documents/Projects/expo-expo/app/(tabs)/index.tsx">
+        <metrics statements="2" coveredstatements="2" conditionals="0" coveredconditionals="0" methods="1" coveredmethods="1"/>
+        <line num="9" count="4" type="stmt"/>
+        <line num="57" count="1" type="stmt"/>
+      </file>
+    </package>
+    <package name="assets.images">
+      <metrics statements="1" coveredstatements="1" conditionals="0" coveredconditionals="0" methods="0" coveredmethods="0"/>
+      <file name="partial-react-logo.png" path="/Users/devin/Documents/Projects/expo-expo/assets/images/partial-react-logo.png">
+        <metrics statements="1" coveredstatements="1" conditionals="0" coveredconditionals="0" methods="0" coveredmethods="0"/>
+        <line num="1" count="1" type="stmt"/>
+      </file>
+    </package>
+    <package name="components">
+      <metrics statements="24" coveredstatements="24" conditionals="23" coveredconditionals="23" methods="7" coveredmethods="7"/>
+      <file name="HelloWave.tsx" path="/Users/devin/Documents/Projects/expo-expo/components/HelloWave.tsx">
+        <metrics statements="6" coveredstatements="6" conditionals="0" coveredconditionals="0" methods="3" coveredmethods="3"/>
+        <line num="14" count="4" type="stmt"/>
+        <line num="16" count="4" type="stmt"/>
+        <line num="17" count="4" type="stmt"/>
+        <line num="23" count="12" type="stmt"/>
+        <line num="27" count="4" type="stmt"/>
+        <line num="34" count="1" type="stmt"/>
+      </file>
+      <file name="ProtectedRoute.tsx" path="/Users/devin/Documents/Projects/expo-expo/components/ProtectedRoute.tsx">
+        <metrics statements="13" coveredstatements="13" conditionals="12" coveredconditionals="12" methods="2" coveredmethods="2"/>
+        <line num="6" count="5" type="stmt"/>
+        <line num="7" count="5" type="stmt"/>
+        <line num="8" count="5" type="stmt"/>
+        <line num="10" count="5" type="stmt"/>
+        <line num="11" count="5" type="cond" truecount="2" falsecount="0"/>
+        <line num="13" count="4" type="stmt"/>
+        <line num="15" count="4" type="cond" truecount="4" falsecount="0"/>
+        <line num="17" count="1" type="stmt"/>
+        <line num="18" count="3" type="cond" truecount="4" falsecount="0"/>
+        <line num="20" count="1" type="stmt"/>
+        <line num="25" count="5" type="cond" truecount="2" falsecount="0"/>
+        <line num="26" count="1" type="stmt"/>
+        <line num="29" count="4" type="stmt"/>
+      </file>
+      <file name="ThemedText.tsx" path="/Users/devin/Documents/Projects/expo-expo/components/ThemedText.tsx">
+        <metrics statements="3" coveredstatements="3" conditionals="11" coveredconditionals="11" methods="1" coveredmethods="1"/>
+        <line num="18" count="89" type="stmt"/>
+        <line num="20" count="89" type="stmt"/>
+        <line num="36" count="3" type="stmt"/>
+      </file>
+      <file name="ThemedView.tsx" path="/Users/devin/Documents/Projects/expo-expo/components/ThemedView.tsx">
+        <metrics statements="2" coveredstatements="2" conditionals="0" coveredconditionals="0" methods="1" coveredmethods="1"/>
+        <line num="11" count="29" type="stmt"/>
+        <line num="13" count="29" type="stmt"/>
+      </file>
+    </package>
+    <package name="constants">
+      <metrics statements="3" coveredstatements="3" conditionals="0" coveredconditionals="0" methods="0" coveredmethods="0"/>
+      <file name="Colors.ts" path="/Users/devin/Documents/Projects/expo-expo/constants/Colors.ts">
+        <metrics statements="3" coveredstatements="3" conditionals="0" coveredconditionals="0" methods="0" coveredmethods="0"/>
+        <line num="6" count="3" type="stmt"/>
+        <line num="7" count="3" type="stmt"/>
+        <line num="9" count="3" type="stmt"/>
+      </file>
+    </package>
+    <package name="hooks">
+      <metrics statements="9" coveredstatements="9" conditionals="6" coveredconditionals="6" methods="2" coveredmethods="2"/>
+      <file name="useAuth.ts" path="/Users/devin/Documents/Projects/expo-expo/hooks/useAuth.ts">
+        <metrics statements="4" coveredstatements="4" conditionals="2" coveredconditionals="2" methods="1" coveredmethods="1"/>
+        <line num="5" count="15" type="stmt"/>
+        <line num="6" count="15" type="cond" truecount="2" falsecount="0"/>
+        <line num="7" count="2" type="stmt"/>
+        <line num="9" count="13" type="stmt"/>
+      </file>
+      <file name="useColorScheme.ts" path="/Users/devin/Documents/Projects/expo-expo/hooks/useColorScheme.ts">
+        <metrics statements="0" coveredstatements="0" conditionals="0" coveredconditionals="0" methods="0" coveredmethods="0"/>
+      </file>
+      <file name="useThemeColor.ts" path="/Users/devin/Documents/Projects/expo-expo/hooks/useThemeColor.ts">
+        <metrics statements="5" coveredstatements="5" conditionals="4" coveredconditionals="4" methods="1" coveredmethods="1"/>
+        <line num="13" count="116" type="cond" truecount="2" falsecount="0"/>
+        <line num="14" count="116" type="stmt"/>
+        <line num="16" count="116" type="cond" truecount="2" falsecount="0"/>
+        <line num="17" count="1" type="stmt"/>
+        <line num="19" count="115" type="stmt"/>
+      </file>
+    </package>
+    <package name="providers">
+      <metrics statements="33" coveredstatements="33" conditionals="4" coveredconditionals="4" methods="15" coveredmethods="15"/>
+      <file name="AuthProvider.tsx" path="/Users/devin/Documents/Projects/expo-expo/providers/AuthProvider.tsx">
+        <metrics statements="33" coveredstatements="33" conditionals="4" coveredconditionals="4" methods="15" coveredmethods="15"/>
+        <line num="6" count="5" type="stmt"/>
+        <line num="9" count="19" type="stmt"/>
+        <line num="15" count="19" type="stmt"/>
+        <line num="17" count="7" type="stmt"/>
+        <line num="20" count="19" type="stmt"/>
+        <line num="21" count="7" type="stmt"/>
+        <line num="22" count="7" type="stmt"/>
+        <line num="23" count="6" type="stmt"/>
+        <line num="29" count="1" type="stmt"/>
+        <line num="37" count="19" type="stmt"/>
+        <line num="38" count="1" type="stmt"/>
+        <line num="39" count="1" type="stmt"/>
+        <line num="40" count="1" type="stmt"/>
+        <line num="46" count="1" type="stmt"/>
+        <line num="49" count="19" type="stmt"/>
+        <line num="50" count="2" type="stmt"/>
+        <line num="51" count="2" type="stmt"/>
+        <line num="52" count="2" type="stmt"/>
+        <line num="58" count="2" type="stmt"/>
+        <line num="61" count="19" type="stmt"/>
+        <line num="62" count="1" type="stmt"/>
+        <line num="63" count="1" type="stmt"/>
+        <line num="64" count="1" type="stmt"/>
+        <line num="70" count="1" type="stmt"/>
+        <line num="71" count="1" type="stmt"/>
+        <line num="75" count="19" type="stmt"/>
+        <line num="76" count="1" type="stmt"/>
+        <line num="77" count="1" type="stmt"/>
+        <line num="78" count="1" type="stmt"/>
+        <line num="83" count="1" type="stmt"/>
+        <line num="87" count="19" type="cond" truecount="2" falsecount="0"/>
+        <line num="88" count="7" type="stmt"/>
+        <line num="91" count="12" type="stmt"/>
+      </file>
+    </package>
+  </project>
+</coverage>
