@@ -52,6 +52,7 @@ Please feel free to drop a pull request or open an issue if you'd like to contri
 - [x] Unit tests
 - [x] Playwright config 
 - [x] End-to-end testing
+- [x] Authentication + auth page
 - [x] Localization
 - [x] Github workflow
 - [x] Prettier + Linter Configs
