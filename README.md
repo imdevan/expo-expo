@@ -1,7 +1,9 @@
-
 ![Expo, Expo!](https://github.com/user-attachments/assets/2cb9d90a-4c88-48d5-bdfe-1ad53c77b0c5)
 
 # Expo, Expo! 🍔
+
+[![Tests](https://github.com/devin/expo-expo/actions/workflows/test.yml/badge.svg)](https://github.com/devin/expo-expo/actions/workflows/test.yml)
+[![codecov](https://codecov.io/gh/devin/expo-expo/graph/badge.svg)](https://codecov.io/gh/devin/expo-expo)
 
 This is an [Expo](https://expo.dev) project created with [`create-expo-app`](https://www.npmjs.com/package/create-expo-app).
 
