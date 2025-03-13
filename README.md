@@ -40,3 +40,23 @@ To learn more about developing your project with Expo, look at the following res
 
 - [Expo documentation](https://docs.expo.dev/): Learn fundamentals, or go into advanced topics with our [guides](https://docs.expo.dev/guides).
 - [Learn Expo tutorial](https://docs.expo.dev/tutorial/introduction/): Follow a step-by-step tutorial where you'll create a project that runs on Android, iOS, and the web.
+
+## Roadmap 🚧
+
+This project is just getting started and has some way to go until it's complete. 
+
+Please feel free to drop a pull request or open an issue if you'd like to contribute!
+
+- [x] Out of the box Expo project
+- [x] Jest config 
+- [x] Unit tests
+- [x] Playwright config 
+- [x] End-to-end testing
+- [x] Localization
+- [x] Github workflow
+- [x] Prettier + Linter Configs
+- [ ] Clean up UI components
+- [ ] Easy tailwind theme config
+- [ ] Basic settings page
+- [ ] Next.js wrapper for web deployments
+- [ ] Easy deploy to web, android, and ios
