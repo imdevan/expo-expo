@@ -48,15 +48,17 @@ This project is just getting started and has some way to go until it's complete.
 Please feel free to drop a pull request or open an issue if you'd like to contribute!
 
 - [x] Out of the box Expo project
+- [x] Connect to supabase
+- [x] Authentication + auth page
 - [x] Jest config 
 - [x] Unit tests
 - [x] Playwright config 
 - [x] End-to-end testing
-- [x] Authentication + auth page
 - [x] Localization
 - [x] Github workflow
 - [x] Prettier + Linter Configs
 - [ ] Clean up UI components
+- [ ] Abstract supabase service to be used easily with any backend
 - [ ] Easy tailwind theme config
 - [ ] Basic settings page
 - [ ] Next.js wrapper for web deployments
