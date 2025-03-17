@@ -24,18 +24,20 @@ export default function AuthScreen() {
   };
  
   return (
-    <View className="flex-1 p-5 justify-center w-[80%] mx-auto">
-      <ThemedText type="title" className="text-center mb-8">
-        {isLogin ? t('auth.welcomeBack') : t('auth.createAccount')}
-      </ThemedText>
+    <View className="flex-1 p-5 justify-center w-full mx-auto min-h-screen bg-gray-200 dark:bg-gray-900">
+      <View className="max-w-xl w-[80%] mx-auto">
+        <ThemedText type="title" className="text-center mb-8">
+          {isLogin ? t('auth.welcomeBack') : t('auth.createAccount')}
+        </ThemedText>
 
-      <AuthForm
-        onSubmit={onSubmit}
-        isLogin={isLogin}
-        isLoading={isLoading}
-        error={error}
-        onToggleMode={() => setIsLogin(!isLogin)}
-      />
+        <AuthForm
+          onSubmit={onSubmit}
+          isLogin={isLogin}
+          isLoading={isLoading}
+          error={error}
+          onToggleMode={() => setIsLogin(!isLogin)}
+        />
+      </View>
     </View>
   );
 }
