@@ -7,9 +7,9 @@
 
 This is an [Expo](https://expo.dev) project created with [`create-expo-app`](https://www.npmjs.com/package/create-expo-app).
 
-The goal of this project is jump start Expo app development with all the bells and whistles that I would want to see in a production web app. 
+The goal of this project is jump start Expo app development with all the bells and whistles that I would want to see in a production web app.
 
-Inspired by [Next Launch](https://github.com/imdevan/next-launch) and [Take Out](https://tamagui.dev/takeout)   
+Inspired by [Next Launch](https://github.com/imdevan/next-launch) and [Take Out](https://tamagui.dev/takeout)
 
 ## Get started
 
@@ -43,22 +43,23 @@ To learn more about developing your project with Expo, look at the following res
 
 ## Roadmap 🚧
 
-This project is just getting started and has some way to go until it's complete. 
+This project is just getting started and has some way to go until it's complete.
 
 Please feel free to drop a pull request or open an issue if you'd like to contribute!
 
 - [x] Out of the box Expo project
 - [x] Connect to supabase
 - [x] Authentication + auth page
-- [x] Jest config 
+- [x] Jest config
 - [x] Unit tests
-- [x] Playwright config 
+- [x] Playwright config
 - [x] End-to-end testing
 - [x] Localization
 - [x] Github workflow
 - [x] Prettier + Linter Configs
-- [ ] Final-Form (or Formik) form integration
-- [ ] Zod form validation
+- [x] Final-Form integration
+- [x] Zod form validation
+- [x] Tailwind + Native support
 - [ ] Easy tailwind theme config
 - [ ] Clean up UI components
 - [ ] Abstract supabase service to be used easily with any backend
