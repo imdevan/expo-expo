@@ -71,4 +71,8 @@ export default {
     title: "This screen doesn't exist.",
     goHome: 'Go to home screen!',
   },
+  menu: {
+    title: 'Menu',
+    signOut: 'Sign Out',
+  },
 };

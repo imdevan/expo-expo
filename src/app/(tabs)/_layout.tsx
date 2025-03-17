@@ -1,5 +1,5 @@
 import { Tabs } from 'expo-router';
-import React from 'react';
+import React, { useState } from 'react';
 import { Platform, TouchableOpacity } from 'react-native';
 import { router } from 'expo-router';
 import { View } from 'react-native';
@@ -9,48 +9,58 @@ import { IconSymbol } from '@/components/ui/IconSymbol';
 import TabBarBackground from '@/components/ui/TabBarBackground';
 import { Colors } from '@/constants/Colors';
 import { useColorScheme } from '@/hooks/useColorScheme';
+import { HeaderMenuButton } from '@/components/HeaderMenuButton';
+import { HamburgerMenu } from '@/components/HamburgerMenu';
 
 export default function TabLayout() {
   const colorScheme = useColorScheme();
+  const [isMenuOpen, setIsMenuOpen] = useState(false);
 
   return (
-    <Tabs
-      screenOptions={{
-        tabBarActiveTintColor: Colors[colorScheme ?? 'light'].tint,
-        headerShown: true,
-        tabBarButton: HapticTab,
-        tabBarBackground: TabBarBackground,
-        tabBarStyle: Platform.select({
-          ios: {
-            // Use a transparent background on iOS to show the blur effect
-            position: 'absolute',
-          },
-          default: {},
-        }),
-        headerRight: () => (
-          <TouchableOpacity onPress={() => router.push('/logout')} style={{ marginRight: 15 }}>
-            <IconSymbol
-              name='rectangle.portrait.and.arrow.right'
-              size={24}
-              color={Colors[colorScheme ?? 'light'].text}
-            />
-          </TouchableOpacity>
-        ),
-      }}>
-      <Tabs.Screen
-        name='index'
-        options={{
-          title: 'Home',
-          tabBarIcon: ({ color }) => <IconSymbol size={28} name='house.fill' color={color} />,
-        }}
-      />
-      <Tabs.Screen
-        name='explore'
-        options={{
-          title: 'Explore',
-          tabBarIcon: ({ color }) => <IconSymbol size={28} name='paperplane.fill' color={color} />,
-        }}
-      />
-    </Tabs>
+    <>
+      <Tabs
+        screenOptions={{
+          tabBarActiveTintColor: Colors[colorScheme ?? 'light'].tint,
+          headerShown: true,
+          tabBarButton: HapticTab,
+          tabBarBackground: TabBarBackground,
+          tabBarStyle: Platform.select({
+            ios: {
+              // Use a transparent background on iOS to show the blur effect
+              position: 'absolute',
+            },
+            default: {},
+          }),
+          headerLeft: () => <HeaderMenuButton onPress={() => setIsMenuOpen(true)} />,
+          headerRight: () => (
+            <TouchableOpacity onPress={() => router.push('/logout')} style={{ marginRight: 15 }}>
+              <IconSymbol
+                name='rectangle.portrait.and.arrow.right'
+                size={24}
+                color={Colors[colorScheme ?? 'light'].text}
+              />
+            </TouchableOpacity>
+          ),
+        }}>
+        <Tabs.Screen
+          name='index'
+          options={{
+            title: 'Home',
+            tabBarIcon: ({ color }) => <IconSymbol size={28} name='house.fill' color={color} />,
+          }}
+        />
+        <Tabs.Screen
+          name='explore'
+          options={{
+            title: 'Explore',
+            tabBarIcon: ({ color }) => (
+              <IconSymbol size={28} name='paperplane.fill' color={color} />
+            ),
+          }}
+        />
+      </Tabs>
+
+      <HamburgerMenu isOpen={isMenuOpen} onClose={() => setIsMenuOpen(false)} />
+    </>
   );
 }

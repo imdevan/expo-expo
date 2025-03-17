@@ -1,6 +1,6 @@
+import React from 'react';
 import { Image, Platform, ScrollView } from 'react-native';
 import { useTranslation } from 'react-i18next';
-import React from 'react';
 import { View } from 'react-native';
 
 import { HelloWave } from '@/components/HelloWave';
@@ -12,68 +12,42 @@ import { useColorScheme } from '@/hooks/useColorScheme';
 export default function HomeScreen() {
   const { t } = useTranslation();
   const colorScheme = useColorScheme() ?? 'light';
-  const bottom = useBottomTabOverflow();
+  const bottomTabOverflow = useBottomTabOverflow();
 
   return (
     <ThemedView className='flex-1'>
       <ScrollView
-        scrollEventThrottle={16}
-        scrollIndicatorInsets={{ bottom }}
-        contentContainerStyle={{ paddingBottom: bottom }}>
-        <ThemedView
-          className='h-[250px] overflow-hidden'
-          style={{ backgroundColor: colorScheme === 'light' ? '#A1CEDC' : '#1D3D47' }}>
-          <Image
-            source={require('@assets/images/partial-react-logo.png')}
-            className='absolute bottom-0 left-0 h-[178px] w-[290px]'
-          />
-        </ThemedView>
-        <ThemedView className='flex-1 gap-4 overflow-hidden p-8'>
-          <View className='flex-row items-center gap-2'>
-            <View>
-              <ThemedText type='title'>{t('common.welcome')}</ThemedText>
-            </View>
+        className='flex-1'
+        contentContainerStyle={{
+          paddingBottom: bottomTabOverflow ? 100 : 80,
+        }}>
+        <View className='p-4'>
+          <View className='mb-4 flex-row items-center'>
+            <ThemedText className='mr-2 text-2xl font-bold'>{t('common.welcome')}</ThemedText>
             <HelloWave />
           </View>
-          <ThemedView className='mb-2 gap-2'>
-            <ThemedText type='subtitle'>{t('home.tryIt.title')}</ThemedText>
+
+          <ThemedView className='mb-4 rounded-lg p-4'>
+            <ThemedText className='mb-2 text-lg font-semibold'>{t('home.tryIt.title')}</ThemedText>
             <ThemedText>
-              {t('home.tryIt.description')
-                .split('{{file}}')
-                .map((part, index) => (
-                  <React.Fragment key={index}>
-                    {part}
-                    {index === 0 && (
-                      <ThemedText type='defaultSemiBold'>app/(tabs)/index.tsx</ThemedText>
-                    )}
-                  </React.Fragment>
-                ))}{' '}
-              {t('home.tryIt.press')}{' '}
-              <ThemedText type='defaultSemiBold'>
-                {Platform.select({
-                  ios: 'cmd + d',
-                  android: 'cmd + m',
-                  web: 'F12',
-                })}
-              </ThemedText>{' '}
-              {t('home.tryIt.toOpen')}
+              {t('home.tryIt.description', { file: 'src/app/(tabs)/index.tsx' })}
             </ThemedText>
           </ThemedView>
-          <ThemedView className='mb-2 gap-2'>
-            <ThemedText type='subtitle'>{t('home.explore.title')}</ThemedText>
+
+          <ThemedView className='mb-4 rounded-lg p-4'>
+            <ThemedText className='mb-2 text-lg font-semibold'>
+              {t('home.explore.title')}
+            </ThemedText>
             <ThemedText>{t('home.explore.description')}</ThemedText>
           </ThemedView>
-          <ThemedView className='mb-2 gap-2'>
-            <ThemedText type='subtitle'>{t('home.freshStart.title')}</ThemedText>
-            <ThemedText>
-              {t('home.freshStart.description', {
-                command: <ThemedText type='defaultSemiBold'>npm run reset-project</ThemedText>,
-                appDir: <ThemedText type='defaultSemiBold'>app</ThemedText>,
-                exampleDir: <ThemedText type='defaultSemiBold'>app-example</ThemedText>,
-              })}
+
+          <ThemedView className='rounded-lg p-4'>
+            <ThemedText className='mb-2 text-lg font-semibold'>
+              {t('home.freshStart.title')}
             </ThemedText>
+            <ThemedText>{t('home.freshStart.description', { command: 'yarn reset' })}</ThemedText>
           </ThemedView>
-        </ThemedView>
+        </View>
       </ScrollView>
     </ThemedView>
   );
