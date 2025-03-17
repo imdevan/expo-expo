@@ -30,6 +30,6 @@ describe('HomeScreen', () => {
   it('renders with themed components', () => {
     const { getByText } = render(<HomeScreen />);
     const welcomeText = getByText('Welcome!');
-    expect(welcomeText.props.style).toBeTruthy();
+    expect(welcomeText.props.className).toBeTruthy();
   });
 }); 

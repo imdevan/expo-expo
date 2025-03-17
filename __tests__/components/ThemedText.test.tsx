@@ -28,12 +28,11 @@ describe('ThemedText', () => {
   });
 
   it('applies custom styles', () => {
-    const customStyle = { fontSize: 24 };
     const { getByText } = render(
-      <ThemedText style={customStyle}>Custom Style Text</ThemedText>
+      <ThemedText className="text-2xl">Custom Style Text</ThemedText>
     );
     const textElement = getByText('Custom Style Text');
-    expect(textElement.props.style).toContainEqual(customStyle);
+    expect(textElement.props.className).toContain('text-2xl');
   });
 
   it('renders with custom colors', () => {

@@ -1,3 +1,4 @@
+import '@/styles/global.css';
 import '@/i18n/i18n';
 import { DarkTheme, DefaultTheme, ThemeProvider } from '@react-navigation/native';
 import { useFonts } from 'expo-font';
@@ -10,7 +11,6 @@ import { AuthProvider } from '@/providers/AuthProvider';
 import { ProtectedRoute } from '@/components/ProtectedRoute';
 import { Head } from 'expo-head';
 import { HelmetProvider } from 'react-helmet-async';
-
 import { useColorScheme } from '@/hooks/useColorScheme';
 
 // Prevent the splash screen from auto-hiding before asset loading is complete.

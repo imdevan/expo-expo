@@ -1,4 +1,4 @@
-import { StyleSheet, Image, Platform } from 'react-native';
+import { Image, Platform } from 'react-native';
 import { useTranslation } from 'react-i18next';
 
 import { Collapsible } from '@/components/Collapsible';
@@ -19,13 +19,13 @@ export default function TabTwoScreen() {
           size={310}
           color="#808080"
           name="chevron.left.forwardslash.chevron.right"
-          style={styles.headerImage}
+          className="absolute -left-[35px] -bottom-[90px]"
         />
       }>
-      <ThemedView style={styles.titleContainer}>
+      <ThemedView className="flex-row gap-2">
         <ThemedText type="title">{t('explore.title')}</ThemedText>
       </ThemedView>
-      <ThemedText style={{ marginBottom: 20 }}>{t('explore.description')}</ThemedText>
+      <ThemedText className="mb-5">{t('explore.description')}</ThemedText>
       <Collapsible title={t('explore.sections.routing.title')}>
         <ThemedText>
           {t('explore.sections.routing.description', {
@@ -56,7 +56,7 @@ export default function TabTwoScreen() {
             suffix2: <ThemedText type="defaultSemiBold">@3x</ThemedText>
           })}
         </ThemedText>
-        <Image source={require('@assets/images/react-logo.png')} style={{ alignSelf: 'center' }} />
+        <Image source={require('@assets/images/react-logo.png')} className="self-center" />
         <ExternalLink href="https://reactnative.dev/docs/images">
           <ThemedText type="link">{t('explore.sections.routing.learnMore')}</ThemedText>
         </ExternalLink>
@@ -100,16 +100,3 @@ export default function TabTwoScreen() {
     </ParallaxScrollView>
   );
 }
-
-const styles = StyleSheet.create({
-  headerImage: {
-    color: '#808080',
-    bottom: -90,
-    left: -35,
-    position: 'absolute',
-  },
-  titleContainer: {
-    flexDirection: 'row',
-    gap: 8,
-  },
-});

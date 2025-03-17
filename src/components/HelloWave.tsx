@@ -26,15 +26,7 @@ export function HelloWave() {
 
   return (
     <Animated.View style={animatedStyle} testID="hello-wave">
-      <ThemedText style={styles.text}>👋</ThemedText>
+      <ThemedText className='text-3xl leading-6 mt-[-6px]'>👋</ThemedText>
     </Animated.View>
   );
 }
-
-const styles = StyleSheet.create({
-  text: {
-    fontSize: 28,
-    lineHeight: 32,
-    marginTop: -6,
-  },
-});
