@@ -64,5 +64,5 @@ Please feel free to drop a pull request or open an issue if you'd like to contri
 - [ ] Clean up UI components
 - [ ] Abstract supabase service to be used easily with any backend
 - [ ] Basic settings page
-- [ ] Next.js wrapper for web deployments
+- [x] Next.js wrapper for web deployments
 - [ ] Easy deploy to web, android, and ios
