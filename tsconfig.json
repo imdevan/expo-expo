@@ -4,25 +4,11 @@
     "strict": true,
     "baseUrl": ".",
     "paths": {
-      "@/*": [
-        "src/*"
-      ],
-      "@assets/*": [
-        "assets/*"
-      ],
-      "__tests__/*": [
-        "__tests__/*"
-      ]
+      "@/*": ["src/*"],
+      "@assets/*": ["assets/*"],
+      "__tests__/*": ["__tests__/*"]
     },
-    "types": [
-      "nativewind/types"
-    ]
+    "types": ["nativewind/types", "jest", "node"]
   },
-  "include": [
-    "**/*.ts",
-    "**/*.tsx",
-    ".expo/types/**/*.ts",
-    "expo-env.d.ts",
-    "nativewind-env.d.ts"
-  ]
+  "include": ["**/*.ts", "**/*.tsx", ".expo/types/**/*.ts", "expo-env.d.ts", "nativewind-env.d.ts"]
 }
