@@ -53,13 +53,13 @@ export function AuthForm({ onSubmit, isLogin, isLoading, error, onToggleMode }: 
       onSubmit={handleSubmit}
       validate={validate}
       render={({ handleSubmit }) => (
-        <View className='space-y-4'>
+        <View className='flex flex-col gap-4'>
           <Field name='email'>
             {({ input, meta }) => (
               <View>
                 <TextInput
                   className={cn(
-                    `rounded-lg bg-input p-4 text-base ${
+                    `rounded-lg bg-input p-4 text-base text-gray-200 placeholder:text-gray-400 dark:text-gray-200 ${
                       meta.error && meta.touched ? 'border border-error' : ''
                     }`
                   )}
@@ -81,7 +81,7 @@ export function AuthForm({ onSubmit, isLogin, isLoading, error, onToggleMode }: 
             {({ input, meta }) => (
               <View>
                 <TextInput
-                  className={`rounded-lg bg-black bg-input p-4 text-base ${
+                  className={`rounded-lg bg-black bg-input p-4 text-base text-gray-200 placeholder:text-gray-400 dark:text-gray-200 ${
                     meta.error && meta.touched ? 'border border-error' : ''
                   }`}
                   placeholder={t('auth.password')}
