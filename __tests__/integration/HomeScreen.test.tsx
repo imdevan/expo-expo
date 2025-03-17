@@ -1,13 +1,35 @@
 import React from 'react';
 import { render, fireEvent } from '@testing-library/react-native';
 import HomeScreen from '@/app/(tabs)/index';
+import { useBottomTabOverflow } from '@/components/ui/TabBarBackground';
 
-// Mock the ParallaxScrollView component to simplify testing
-jest.mock('@/components/ParallaxScrollView', () => {
-  return function MockParallaxScrollView({ children }: { children: React.ReactNode }) {
-    return <>{children}</>;
-  };
-});
+// Mock the useBottomTabOverflow hook
+jest.mock('@/components/ui/TabBarBackground', () => ({
+  useBottomTabOverflow: () => 0,
+}));
+
+// Mock the useColorScheme hook
+jest.mock('@/hooks/useColorScheme', () => ({
+  useColorScheme: () => 'light',
+}));
+
+// Mock the useTranslation hook
+jest.mock('react-i18next', () => ({
+  useTranslation: () => ({
+    t: (key: string) => {
+      const translations: Record<string, string> = {
+        'common.welcome': 'Welcome!',
+        'home.tryIt.title': 'Step 1: Try it',
+        'home.tryIt.description': 'Edit {{file}} to get started',
+        'home.explore.title': 'Step 2: Explore',
+        'home.explore.description': 'Check out the example app',
+        'home.freshStart.title': 'Step 3: Fresh Start',
+        'home.freshStart.description': 'Run {{command}} to reset the project',
+      };
+      return translations[key] || key;
+    },
+  }),
+}));
 
 describe('HomeScreen', () => {
   it('renders the welcome message', () => {
