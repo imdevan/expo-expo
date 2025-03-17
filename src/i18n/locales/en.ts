@@ -74,5 +74,9 @@ export default {
   menu: {
     title: 'Menu',
     signOut: 'Sign Out',
+    theme: 'Theme',
+    light: 'Light',
+    dark: 'Dark',
+    auto: 'Auto',
   },
 };

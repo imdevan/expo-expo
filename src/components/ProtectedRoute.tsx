@@ -1,14 +1,20 @@
-import React, { useEffect } from 'react';
+import React, { useEffect, useState } from 'react';
 import { useRouter, useSegments } from 'expo-router';
 import { useAuth } from '@/hooks/useAuth';
+import { View } from 'react-native';
 
 export function ProtectedRoute({ children }: { children: React.ReactNode }) {
   const { user, isLoading } = useAuth();
   const segments = useSegments();
   const router = useRouter();
+  const [isMounted, setIsMounted] = useState(false);
 
   useEffect(() => {
-    if (isLoading) return;
+    setIsMounted(true);
+  }, []);
+
+  useEffect(() => {
+    if (isLoading || !isMounted) return;
 
     const inAuthGroup = segments[0] === 'auth';
 
@@ -19,11 +25,11 @@ export function ProtectedRoute({ children }: { children: React.ReactNode }) {
       // Redirect to home if authenticated and trying to access auth page
       router.replace('/(tabs)');
     }
-  }, [user, segments, isLoading, router]);
+  }, [user, segments, isLoading, router, isMounted]);
 
-  // Don't render anything while checking auth state
-  if (isLoading) {
-    return null;
+  // Show a loading state while checking auth state
+  if (isLoading || !isMounted) {
+    return <View />;
   }
 
   return <>{children}</>;
