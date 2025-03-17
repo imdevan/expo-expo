@@ -14,19 +14,19 @@ export function Collapsible({ children, title }: PropsWithChildren & { title: st
   return (
     <ThemedView>
       <TouchableOpacity
-        className="flex-row items-center gap-1.5"
+        className='flex-row items-center gap-1.5'
         onPress={() => setIsOpen((value) => !value)}
         activeOpacity={0.8}>
         <IconSymbol
-          name="chevron.right"
+          name='chevron.right'
           size={18}
-          weight="medium"
+          weight='medium'
           color={theme === 'light' ? Colors.light.icon : Colors.dark.icon}
           className={`transition-transform ${isOpen ? 'rotate-90' : 'rotate-0'}`}
         />
-        <ThemedText type="defaultSemiBold">{title}</ThemedText>
+        <ThemedText type='defaultSemiBold'>{title}</ThemedText>
       </TouchableOpacity>
-      {isOpen && <ThemedView className="mt-1.5 ml-6">{children}</ThemedView>}
+      {isOpen && <ThemedView className='ml-6 mt-1.5'>{children}</ThemedView>}
     </ThemedView>
   );
 }

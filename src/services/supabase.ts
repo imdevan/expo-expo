@@ -10,7 +10,7 @@ const supabase = createClient(supabaseUrl, supabaseAnonKey);
 // Helper to transform Supabase user to our User type
 const transformUser = (supabaseUser: any): User | null => {
   if (!supabaseUser) return null;
-  
+
   return {
     id: supabaseUser.id,
     email: supabaseUser.email,
@@ -78,7 +78,10 @@ export const supabaseAuth = {
 
   getCurrentUser: async (): Promise<AuthResponse> => {
     try {
-      const { data: { user }, error } = await supabase.auth.getUser();
+      const {
+        data: { user },
+        error,
+      } = await supabase.auth.getUser();
       if (error) throw error;
 
       return {
@@ -92,4 +95,4 @@ export const supabaseAuth = {
       };
     }
   },
-}; 
+};

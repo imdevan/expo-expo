@@ -57,9 +57,12 @@ describe('AuthScreen', () => {
     });
 
     // Wait for the navigation to occur after the setTimeout
-    await waitFor(() => {
-      expect(mockRouter.replace).toHaveBeenCalledWith('/(tabs)');
-    }, { timeout: 100 });
+    await waitFor(
+      () => {
+        expect(mockRouter.replace).toHaveBeenCalledWith('/(tabs)');
+      },
+      { timeout: 100 }
+    );
   });
 
   it('handles sign up successfully', async () => {
@@ -82,9 +85,12 @@ describe('AuthScreen', () => {
     });
 
     // Wait for the navigation to occur after the setTimeout
-    await waitFor(() => {
-      expect(mockRouter.replace).toHaveBeenCalledWith('/(tabs)');
-    }, { timeout: 100 });
+    await waitFor(
+      () => {
+        expect(mockRouter.replace).toHaveBeenCalledWith('/(tabs)');
+      },
+      { timeout: 100 }
+    );
   });
 
   it('displays error messages', async () => {
@@ -111,4 +117,4 @@ describe('AuthScreen', () => {
     const { getByTestId } = render(<Auth />);
     expect(getByTestId('loading-indicator')).toBeTruthy();
   });
-}); 
+});

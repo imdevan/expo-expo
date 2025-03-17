@@ -22,4 +22,4 @@ export default defineConfig({
     url: 'http://localhost:8081',
     reuseExistingServer: !process.env.CI,
   },
-}); 
+});

@@ -34,9 +34,9 @@ export function AuthProvider({ children }: { children: React.ReactNode }) {
   };
 
   const signUp = async (credentials: AuthCredentials) => {
-    setState(prev => ({ ...prev, isLoading: true, error: null }));
+    setState((prev) => ({ ...prev, isLoading: true, error: null }));
     const response = await supabaseAuth.signUp(credentials);
-    setState(prev => ({
+    setState((prev) => ({
       ...prev,
       user: response.user,
       isLoading: false,
@@ -46,9 +46,9 @@ export function AuthProvider({ children }: { children: React.ReactNode }) {
   };
 
   const signIn = async (credentials: AuthCredentials) => {
-    setState(prev => ({ ...prev, isLoading: true, error: null }));
+    setState((prev) => ({ ...prev, isLoading: true, error: null }));
     const response = await supabaseAuth.signIn(credentials);
-    setState(prev => ({
+    setState((prev) => ({
       ...prev,
       user: response.user,
       isLoading: false,
@@ -58,7 +58,7 @@ export function AuthProvider({ children }: { children: React.ReactNode }) {
   };
 
   const signOut = async () => {
-    setState(prev => ({ ...prev, isLoading: true, error: null }));
+    setState((prev) => ({ ...prev, isLoading: true, error: null }));
     await supabaseAuth.signOut();
     setState({
       user: null,
@@ -68,9 +68,9 @@ export function AuthProvider({ children }: { children: React.ReactNode }) {
   };
 
   const resetPassword = async (email: string) => {
-    setState(prev => ({ ...prev, isLoading: true, error: null }));
+    setState((prev) => ({ ...prev, isLoading: true, error: null }));
     const response = await supabaseAuth.resetPassword(email);
-    setState(prev => ({
+    setState((prev) => ({
       ...prev,
       isLoading: false,
       error: response.error,
@@ -95,4 +95,4 @@ export function AuthProvider({ children }: { children: React.ReactNode }) {
       {children}
     </AuthContext.Provider>
   );
-} 
+}

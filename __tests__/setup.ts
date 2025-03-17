@@ -57,4 +57,4 @@ export const mockUser = {
   email: 'test@example.com',
   createdAt: '2024-01-01',
   updatedAt: '2024-01-01',
-}; 
+};

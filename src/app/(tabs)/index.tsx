@@ -9,53 +9,55 @@ import { ThemedView } from '@/components/ThemedView';
 
 export default function HomeScreen() {
   const { t } = useTranslation();
-  
+
   return (
     <ParallaxScrollView
       headerBackgroundColor={{ light: '#A1CEDC', dark: '#1D3D47' }}
       headerImage={
         <Image
           source={require('@assets/images/partial-react-logo.png')}
-          className="h-[178px] w-[290px] bottom-0 left-0 absolute"
+          className='absolute bottom-0 left-0 h-[178px] w-[290px]'
         />
       }>
-      <ThemedView className="flex-row items-center gap-2">
-        <ThemedText type="title">{t('common.welcome')}</ThemedText>
+      <ThemedView className='flex-row items-center gap-2'>
+        <ThemedText type='title'>{t('common.welcome')}</ThemedText>
         <HelloWave />
       </ThemedView>
-      <ThemedView className="gap-2 mb-2">
-        <ThemedText type="subtitle">{t('home.tryIt.title')}</ThemedText>
+      <ThemedView className='mb-2 gap-2'>
+        <ThemedText type='subtitle'>{t('home.tryIt.title')}</ThemedText>
         <ThemedText>
-          {t('home.tryIt.description').split('{{file}}').map((part, index) => (
-            <React.Fragment key={index}>
-              {part}
-              {index === 0 && <ThemedText type="defaultSemiBold">app/(tabs)/index.tsx</ThemedText>}
-            </React.Fragment>
-          ))}
-          {' '}
+          {t('home.tryIt.description')
+            .split('{{file}}')
+            .map((part, index) => (
+              <React.Fragment key={index}>
+                {part}
+                {index === 0 && (
+                  <ThemedText type='defaultSemiBold'>app/(tabs)/index.tsx</ThemedText>
+                )}
+              </React.Fragment>
+            ))}{' '}
           {t('home.tryIt.press')}{' '}
-          <ThemedText type="defaultSemiBold">
+          <ThemedText type='defaultSemiBold'>
             {Platform.select({
               ios: 'cmd + d',
               android: 'cmd + m',
-              web: 'F12'
+              web: 'F12',
             })}
-          </ThemedText>
-          {' '}
+          </ThemedText>{' '}
           {t('home.tryIt.toOpen')}
         </ThemedText>
       </ThemedView>
-      <ThemedView className="gap-2 mb-2">
-        <ThemedText type="subtitle">{t('home.explore.title')}</ThemedText>
+      <ThemedView className='mb-2 gap-2'>
+        <ThemedText type='subtitle'>{t('home.explore.title')}</ThemedText>
         <ThemedText>{t('home.explore.description')}</ThemedText>
       </ThemedView>
-      <ThemedView className="gap-2 mb-2">
-        <ThemedText type="subtitle">{t('home.freshStart.title')}</ThemedText>
+      <ThemedView className='mb-2 gap-2'>
+        <ThemedText type='subtitle'>{t('home.freshStart.title')}</ThemedText>
         <ThemedText>
           {t('home.freshStart.description', {
-            command: <ThemedText type="defaultSemiBold">npm run reset-project</ThemedText>,
-            appDir: <ThemedText type="defaultSemiBold">app</ThemedText>,
-            exampleDir: <ThemedText type="defaultSemiBold">app-example</ThemedText>
+            command: <ThemedText type='defaultSemiBold'>npm run reset-project</ThemedText>,
+            appDir: <ThemedText type='defaultSemiBold'>app</ThemedText>,
+            exampleDir: <ThemedText type='defaultSemiBold'>app-example</ThemedText>,
           })}
         </ThemedText>
       </ThemedView>

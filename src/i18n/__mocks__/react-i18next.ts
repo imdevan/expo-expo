@@ -6,7 +6,7 @@ const useTranslation = () => {
       // Split the key by dots to traverse the translations object
       const keys = key.split('.');
       let value = keys.reduce((obj, key) => obj?.[key], en as any);
-      
+
       // If the value is not found, return the key
       if (!value) return key;
 
@@ -29,4 +29,4 @@ const useTranslation = () => {
 
 module.exports = {
   useTranslation,
-}; 
+};

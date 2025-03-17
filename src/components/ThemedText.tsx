@@ -15,12 +15,8 @@ export function ThemedText({ children, type = 'body', className = '' }: ThemedTe
     subtitle: `text-xl font-semibold dark:text-white ${textBaseClasses}`,
     defaultSemiBold: `font-semibold dark:text-white ${textBaseClasses}`,
     link: 'text-blue-500 underline',
-    body: 'dark:text-gray-400'
+    body: 'dark:text-gray-400',
   }[type];
-  
-  return (
-    <Text className={`${baseClasses} ${typeClasses} ${className}`}>
-      {children}
-    </Text>
-  );
+
+  return <Text className={`${baseClasses} ${typeClasses} ${className}`}>{children}</Text>;
 }

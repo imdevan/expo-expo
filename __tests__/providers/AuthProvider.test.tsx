@@ -22,14 +22,14 @@ const TestComponent = () => {
   const { user, isLoading } = useAuth();
   return (
     <View>
-      <Text testID="loading">{isLoading.toString()}</Text>
-      <Text testID="user">{user ? JSON.stringify(user) : 'null'}</Text>
+      <Text testID='loading'>{isLoading.toString()}</Text>
+      <Text testID='user'>{user ? JSON.stringify(user) : 'null'}</Text>
     </View>
   );
 };
 
 // Helper function to wait for state updates
-const wait = (ms: number = 0) => new Promise(resolve => setTimeout(resolve, ms));
+const wait = (ms: number = 0) => new Promise((resolve) => setTimeout(resolve, ms));
 
 describe('AuthProvider', () => {
   beforeEach(() => {
@@ -111,7 +111,7 @@ describe('AuthProvider', () => {
     const { result } = renderHook(() => useAuth(), {
       wrapper: AuthProvider,
     });
-  
+
     await waitForStateUpdate(100);
 
     await act(async () => {

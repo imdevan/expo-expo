@@ -14,19 +14,17 @@ export default function AuthScreen() {
   const { t } = useTranslation();
 
   const onSubmit = async (values: FormValues) => {
-    const response = isLogin
-      ? await signIn(values)
-      : await signUp(values);
-    
+    const response = isLogin ? await signIn(values) : await signUp(values);
+
     if (!response.error) {
       router.replace('/(tabs)');
     }
   };
- 
+
   return (
-    <View className="flex-1 p-5 justify-center w-full mx-auto min-h-screen bg-gray-200 dark:bg-gray-900">
-      <View className="max-w-xl w-[80%] mx-auto">
-        <ThemedText type="title" className="text-center mb-8">
+    <View className='mx-auto min-h-screen w-full flex-1 justify-center bg-gray-200 p-5 dark:bg-gray-900'>
+      <View className='mx-auto w-[80%] max-w-xl'>
+        <ThemedText type='title' className='mb-8 text-center'>
           {isLogin ? t('auth.welcomeBack') : t('auth.createAccount')}
         </ThemedText>
 

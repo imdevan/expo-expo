@@ -25,8 +25,8 @@ export function HelloWave() {
   }));
 
   return (
-    <Animated.View style={animatedStyle} testID="hello-wave">
-      <ThemedText className='text-3xl leading-6 mt-[-6px]'>👋</ThemedText>
+    <Animated.View style={animatedStyle} testID='hello-wave'>
+      <ThemedText className='mt-[-6px] text-3xl leading-6'>👋</ThemedText>
     </Animated.View>
   );
 }

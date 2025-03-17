@@ -27,11 +27,9 @@ export default function TabLayout() {
           default: {},
         }),
         headerRight: () => (
-          <TouchableOpacity
-            onPress={() => router.push('/logout')}
-            style={{ marginRight: 15 }}>
+          <TouchableOpacity onPress={() => router.push('/logout')} style={{ marginRight: 15 }}>
             <IconSymbol
-              name="rectangle.portrait.and.arrow.right"
+              name='rectangle.portrait.and.arrow.right'
               size={24}
               color={Colors[colorScheme ?? 'light'].text}
             />
@@ -39,17 +37,17 @@ export default function TabLayout() {
         ),
       }}>
       <Tabs.Screen
-        name="index"
+        name='index'
         options={{
           title: 'Home',
-          tabBarIcon: ({ color }) => <IconSymbol size={28} name="house.fill" color={color} />,
+          tabBarIcon: ({ color }) => <IconSymbol size={28} name='house.fill' color={color} />,
         }}
       />
       <Tabs.Screen
-        name="explore"
+        name='explore'
         options={{
           title: 'Explore',
-          tabBarIcon: ({ color }) => <IconSymbol size={28} name="paperplane.fill" color={color} />,
+          tabBarIcon: ({ color }) => <IconSymbol size={28} name='paperplane.fill' color={color} />,
         }}
       />
     </Tabs>

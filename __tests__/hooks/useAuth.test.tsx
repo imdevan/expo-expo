@@ -14,9 +14,7 @@ describe('useAuth', () => {
     };
 
     const wrapper = ({ children }: { children: React.ReactNode }) => (
-      <AuthContext.Provider value={mockContext}>
-        {children}
-      </AuthContext.Provider>
+      <AuthContext.Provider value={mockContext}>{children}</AuthContext.Provider>
     );
 
     const { result } = renderHook(() => useAuth(), { wrapper });
@@ -26,7 +24,7 @@ describe('useAuth', () => {
 
   it('throws error when used outside of AuthProvider', () => {
     expect.assertions(1);
-    
+
     try {
       renderHook(() => useAuth());
       // If we get here, the test should fail because we expect an error
@@ -35,4 +33,4 @@ describe('useAuth', () => {
       expect(error).toEqual(new Error('useAuth must be used within an AuthProvider'));
     }
   });
-}); 
+});

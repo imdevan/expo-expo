@@ -6,6 +6,6 @@ import { act } from '@testing-library/react-native';
  */
 export const waitForStateUpdate = async (timeout: number = 0) => {
   await act(async () => {
-    await new Promise(resolve => setTimeout(resolve, timeout));
+    await new Promise((resolve) => setTimeout(resolve, timeout));
   });
-}; 
+};

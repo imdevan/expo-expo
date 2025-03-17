@@ -4,24 +4,24 @@ module.exports = {
   singleQuote: true,
   jsxSingleQuote: true,
   bracketSameLine: true,
-  trailingComma: "es5",
+  trailingComma: 'es5',
   semi: true,
   useTabs: false,
   bracketSpacing: true,
-  arrowParens: "always",
-  endOfLine: "lf",
-  embeddedLanguageFormatting: "auto",
+  arrowParens: 'always',
+  endOfLine: 'lf',
+  embeddedLanguageFormatting: 'auto',
   singleAttributePerLine: false,
-  plugins: ["prettier-plugin-tailwindcss"],
+  plugins: ['prettier-plugin-tailwindcss'],
   // tailwindAttributes: ["className"],
   overrides: [
     {
-      files: "*.{js,jsx,ts,tsx}",
+      files: '*.{js,jsx,ts,tsx}',
       options: {
-        parser: "typescript",
+        parser: 'typescript',
         singleQuote: true,
-        jsxSingleQuote: true
-      }
-    }
-  ]
-}
+        jsxSingleQuote: true,
+      },
+    },
+  ],
+};

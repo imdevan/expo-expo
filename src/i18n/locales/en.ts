@@ -26,7 +26,8 @@ export default {
     },
     freshStart: {
       title: 'Step 3: Get a fresh start',
-      description: 'When you\'re ready, run {{command}} to get a fresh {{appDir}} directory. This will move the current {{appDir}} to {{exampleDir}}.',
+      description:
+        "When you're ready, run {{command}} to get a fresh {{appDir}} directory. This will move the current {{appDir}} to {{exampleDir}}.",
     },
   },
   explore: {
@@ -41,11 +42,13 @@ export default {
       },
       platform: {
         title: 'Android, iOS, and web support',
-        description: 'You can open this project on Android, iOS, and the web. To open the web version, press {{key}} in the terminal running this project.',
+        description:
+          'You can open this project on Android, iOS, and the web. To open the web version, press {{key}} in the terminal running this project.',
       },
       images: {
         title: 'Images',
-        description: 'For static images, you can use the {{suffix1}} and {{suffix2}} suffixes to provide files for different screen densities',
+        description:
+          'For static images, you can use the {{suffix1}} and {{suffix2}} suffixes to provide files for different screen densities',
       },
       fonts: {
         title: 'Custom fonts',
@@ -53,11 +56,13 @@ export default {
       },
       themes: {
         title: 'Light and dark mode components',
-        description: 'This template has light and dark mode support. The {{hook}} hook lets you inspect what the user\'s current color scheme is, and so you can adjust UI colors accordingly.',
+        description:
+          "This template has light and dark mode support. The {{hook}} hook lets you inspect what the user's current color scheme is, and so you can adjust UI colors accordingly.",
       },
       animations: {
         title: 'Animations',
-        description: 'This template includes an example of an animated component. The {{component}} component uses the powerful {{library}} library to create a waving hand animation.',
+        description:
+          'This template includes an example of an animated component. The {{component}} component uses the powerful {{library}} library to create a waving hand animation.',
         ios: 'The {{component}} component provides a parallax effect for the header image.',
       },
     },
@@ -66,4 +71,4 @@ export default {
     title: "This screen doesn't exist.",
     goHome: 'Go to home screen!',
   },
-}; 
+};

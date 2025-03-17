@@ -16,9 +16,9 @@ describe('ThemedText', () => {
   it('renders with different text types', () => {
     const { getByText } = render(
       <>
-        <ThemedText type="title">Title Text</ThemedText>
-        <ThemedText type="subtitle">Subtitle Text</ThemedText>
-        <ThemedText type="link">Link Text</ThemedText>
+        <ThemedText type='title'>Title Text</ThemedText>
+        <ThemedText type='subtitle'>Subtitle Text</ThemedText>
+        <ThemedText type='link'>Link Text</ThemedText>
       </>
     );
 
@@ -28,19 +28,17 @@ describe('ThemedText', () => {
   });
 
   it('applies custom styles', () => {
-    const { getByText } = render(
-      <ThemedText className="text-2xl">Custom Style Text</ThemedText>
-    );
+    const { getByText } = render(<ThemedText className='text-2xl'>Custom Style Text</ThemedText>);
     const textElement = getByText('Custom Style Text');
     expect(textElement.props.className).toContain('text-2xl');
   });
 
   it('renders with custom colors', () => {
     const { getByText } = render(
-      <ThemedText lightColor="#ffffff" darkColor="#000000">
+      <ThemedText lightColor='#ffffff' darkColor='#000000'>
         Colored Text
       </ThemedText>
     );
     expect(getByText('Colored Text')).toBeTruthy();
   });
-}); 
+});

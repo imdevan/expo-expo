@@ -8,4 +8,4 @@ declare module 'nativewind/styled' {
   export const StyledText: ComponentType<TextProps & { className?: string }>;
   export const StyledImage: ComponentType<ImageProps & { className?: string }>;
   export const StyledScrollView: ComponentType<ScrollViewProps & { className?: string }>;
-} 
+}

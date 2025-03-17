@@ -11,5 +11,5 @@ export default function LogoutScreen() {
   }, []);
 
   // Use Redirect component instead of programmatic navigation
-  return <Redirect href="/auth" />;
-} 
+  return <Redirect href='/auth' />;
+}

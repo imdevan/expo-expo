@@ -59,7 +59,7 @@ describe('ProtectedRoute', () => {
     );
 
     // Add a small delay to allow useEffect to complete
-    await new Promise(resolve => setTimeout(resolve, 0));
+    await new Promise((resolve) => setTimeout(resolve, 0));
 
     await waitFor(() => {
       expect(getByText('Protected Content')).toBeTruthy();
@@ -99,4 +99,4 @@ describe('ProtectedRoute', () => {
 
     expect(mockRouter.replace).not.toHaveBeenCalled();
   });
-}); 
+});

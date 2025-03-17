@@ -10,15 +10,13 @@ const resources = {
   },
 };
 
-i18n
-  .use(initReactI18next)
-  .init({
-    resources,
-    lng: Localization.locale.split('-')[0], // Use device language
-    fallbackLng: 'en',
-    interpolation: {
-      escapeValue: false,
-    },
-  });
+i18n.use(initReactI18next).init({
+  resources,
+  lng: Localization.locale.split('-')[0], // Use device language
+  fallbackLng: 'en',
+  interpolation: {
+    escapeValue: false,
+  },
+});
 
-export default i18n; 
+export default i18n;

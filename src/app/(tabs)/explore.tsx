@@ -10,88 +10,88 @@ import { IconSymbol } from '@/components/ui/IconSymbol';
 
 export default function TabTwoScreen() {
   const { t } = useTranslation();
-  
+
   return (
     <ParallaxScrollView
       headerBackgroundColor={{ light: '#D0D0D0', dark: '#353636' }}
       headerImage={
         <IconSymbol
           size={310}
-          color="#808080"
-          name="chevron.left.forwardslash.chevron.right"
-          className="absolute -left-[35px] -bottom-[90px]"
+          color='#808080'
+          name='chevron.left.forwardslash.chevron.right'
+          className='absolute -bottom-[90px] -left-[35px]'
         />
       }>
-      <ThemedView className="flex-row gap-2">
-        <ThemedText type="title">{t('explore.title')}</ThemedText>
+      <ThemedView className='flex-row gap-2'>
+        <ThemedText type='title'>{t('explore.title')}</ThemedText>
       </ThemedView>
-      <ThemedText className="mb-5">{t('explore.description')}</ThemedText>
+      <ThemedText className='mb-5'>{t('explore.description')}</ThemedText>
       <Collapsible title={t('explore.sections.routing.title')}>
         <ThemedText>
           {t('explore.sections.routing.description', {
-            screen1: <ThemedText type="defaultSemiBold">Home</ThemedText>,
-            screen2: <ThemedText type="defaultSemiBold">Explore</ThemedText>
+            screen1: <ThemedText type='defaultSemiBold'>Home</ThemedText>,
+            screen2: <ThemedText type='defaultSemiBold'>Explore</ThemedText>,
           })}
         </ThemedText>
         <ThemedText>
           {t('explore.sections.routing.layout', {
-            file: <ThemedText type="defaultSemiBold">app/(tabs)/_layout.tsx</ThemedText>
+            file: <ThemedText type='defaultSemiBold'>app/(tabs)/_layout.tsx</ThemedText>,
           })}
         </ThemedText>
-        <ExternalLink href="https://docs.expo.dev/router/introduction/">
-          <ThemedText type="link">{t('explore.sections.routing.learnMore')}</ThemedText>
+        <ExternalLink href='https://docs.expo.dev/router/introduction/'>
+          <ThemedText type='link'>{t('explore.sections.routing.learnMore')}</ThemedText>
         </ExternalLink>
       </Collapsible>
       <Collapsible title={t('explore.sections.platform.title')}>
         <ThemedText>
           {t('explore.sections.platform.description', {
-            key: <ThemedText type="defaultSemiBold">w</ThemedText>
+            key: <ThemedText type='defaultSemiBold'>w</ThemedText>,
           })}
         </ThemedText>
       </Collapsible>
       <Collapsible title={t('explore.sections.images.title')}>
         <ThemedText>
           {t('explore.sections.images.description', {
-            suffix1: <ThemedText type="defaultSemiBold">@2x</ThemedText>,
-            suffix2: <ThemedText type="defaultSemiBold">@3x</ThemedText>
+            suffix1: <ThemedText type='defaultSemiBold'>@2x</ThemedText>,
+            suffix2: <ThemedText type='defaultSemiBold'>@3x</ThemedText>,
           })}
         </ThemedText>
-        <Image source={require('@assets/images/react-logo.png')} className="self-center" />
-        <ExternalLink href="https://reactnative.dev/docs/images">
-          <ThemedText type="link">{t('explore.sections.routing.learnMore')}</ThemedText>
+        <Image source={require('@assets/images/react-logo.png')} className='self-center' />
+        <ExternalLink href='https://reactnative.dev/docs/images'>
+          <ThemedText type='link'>{t('explore.sections.routing.learnMore')}</ThemedText>
         </ExternalLink>
       </Collapsible>
       <Collapsible title={t('explore.sections.fonts.title')}>
         <ThemedText>
           {t('explore.sections.fonts.description', {
-            file: <ThemedText type="defaultSemiBold">app/_layout.tsx</ThemedText>
+            file: <ThemedText type='defaultSemiBold'>app/_layout.tsx</ThemedText>,
           })}
         </ThemedText>
-        <ExternalLink href="https://docs.expo.dev/versions/latest/sdk/font">
-          <ThemedText type="link">{t('explore.sections.routing.learnMore')}</ThemedText>
+        <ExternalLink href='https://docs.expo.dev/versions/latest/sdk/font'>
+          <ThemedText type='link'>{t('explore.sections.routing.learnMore')}</ThemedText>
         </ExternalLink>
       </Collapsible>
       <Collapsible title={t('explore.sections.themes.title')}>
         <ThemedText>
           {t('explore.sections.themes.description', {
-            hook: <ThemedText type="defaultSemiBold">useColorScheme()</ThemedText>
+            hook: <ThemedText type='defaultSemiBold'>useColorScheme()</ThemedText>,
           })}
         </ThemedText>
-        <ExternalLink href="https://docs.expo.dev/develop/user-interface/color-themes/">
-          <ThemedText type="link">{t('explore.sections.routing.learnMore')}</ThemedText>
+        <ExternalLink href='https://docs.expo.dev/develop/user-interface/color-themes/'>
+          <ThemedText type='link'>{t('explore.sections.routing.learnMore')}</ThemedText>
         </ExternalLink>
       </Collapsible>
-      <Collapsible title="Animations">
+      <Collapsible title='Animations'>
         <ThemedText>
           This template includes an example of an animated component. The{' '}
-          <ThemedText type="defaultSemiBold">components/HelloWave.tsx</ThemedText> component uses
-          the powerful <ThemedText type="defaultSemiBold">react-native-reanimated</ThemedText>{' '}
+          <ThemedText type='defaultSemiBold'>components/HelloWave.tsx</ThemedText> component uses
+          the powerful <ThemedText type='defaultSemiBold'>react-native-reanimated</ThemedText>{' '}
           library to create a waving hand animation.
         </ThemedText>
         {Platform.select({
           ios: (
             <ThemedText>
-              The <ThemedText type="defaultSemiBold">components/ParallaxScrollView.tsx</ThemedText>{' '}
+              The <ThemedText type='defaultSemiBold'>components/ParallaxScrollView.tsx</ThemedText>{' '}
               component provides a parallax effect for the header image.
             </ThemedText>
           ),

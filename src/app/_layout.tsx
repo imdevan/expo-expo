@@ -47,7 +47,7 @@ export default function RootLayout() {
               <title>Expo App</title>
             </Head>
             <Slot />
-            <StatusBar style="auto" />
+            <StatusBar style='auto' />
           </ThemeProvider>
         </ProtectedRoute>
       </AuthProvider>

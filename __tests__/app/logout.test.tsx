@@ -7,7 +7,7 @@ import { Redirect } from 'expo-router';
 // Mock the dependencies
 jest.mock('@/hooks/useAuth');
 jest.mock('expo-router', () => ({
-  Redirect: jest.fn(() => null)
+  Redirect: jest.fn(() => null),
 }));
 
 describe('LogoutScreen', () => {
@@ -29,9 +29,9 @@ describe('LogoutScreen', () => {
     render(<LogoutScreen />);
     expect(Redirect).toHaveBeenCalledWith(
       expect.objectContaining({
-        href: '/auth'
+        href: '/auth',
       }),
       expect.any(Object)
     );
   });
-}); 
+});

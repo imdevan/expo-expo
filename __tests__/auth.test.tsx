@@ -33,7 +33,7 @@ describe('AuthScreen', () => {
 
   it('validates required fields', async () => {
     render(<AuthScreen />);
-    
+
     const submitButton = screen.getByText('auth.signIn');
     fireEvent.press(submitButton);
 
@@ -45,13 +45,13 @@ describe('AuthScreen', () => {
 
   it('validates email format', async () => {
     render(<AuthScreen />);
-    
+
     const emailInput = screen.getByPlaceholderText('auth.email');
     const passwordInput = screen.getByPlaceholderText('auth.password');
-    
+
     fireEvent.changeText(emailInput, 'invalid-email');
     fireEvent.changeText(passwordInput, 'password123');
-    
+
     const submitButton = screen.getByText('auth.signIn');
     fireEvent.press(submitButton);
 
@@ -62,13 +62,13 @@ describe('AuthScreen', () => {
 
   it('validates password length', async () => {
     render(<AuthScreen />);
-    
+
     const emailInput = screen.getByPlaceholderText('auth.email');
     const passwordInput = screen.getByPlaceholderText('auth.password');
-    
+
     fireEvent.changeText(emailInput, 'test@example.com');
     fireEvent.changeText(passwordInput, '123');
-    
+
     const submitButton = screen.getByText('auth.signIn');
     fireEvent.press(submitButton);
 
@@ -79,15 +79,15 @@ describe('AuthScreen', () => {
 
   it('submits form with valid data', async () => {
     mockSignIn.mockResolvedValueOnce({ error: null });
-    
+
     render(<AuthScreen />);
-    
+
     const emailInput = screen.getByPlaceholderText('auth.email');
     const passwordInput = screen.getByPlaceholderText('auth.password');
-    
+
     fireEvent.changeText(emailInput, 'test@example.com');
     fireEvent.changeText(passwordInput, 'password123');
-    
+
     const submitButton = screen.getByText('auth.signIn');
     fireEvent.press(submitButton);
 
@@ -109,7 +109,7 @@ describe('AuthScreen', () => {
     });
 
     render(<AuthScreen />);
-    
+
     expect(screen.getByTestId('loading-indicator')).toBeTruthy();
   });
 
@@ -123,22 +123,22 @@ describe('AuthScreen', () => {
     });
 
     render(<AuthScreen />);
-    
+
     expect(screen.getByText(errorMessage)).toBeTruthy();
   });
 
   it('toggles between login and signup modes', () => {
     render(<AuthScreen />);
-    
+
     // Initially in login mode
     expect(screen.getByText('auth.welcomeBack')).toBeTruthy();
-    
+
     // Switch to signup mode
     fireEvent.press(screen.getByText('auth.noAccount'));
     expect(screen.getByText('auth.createAccount')).toBeTruthy();
-    
+
     // Switch back to login mode
     fireEvent.press(screen.getByText('auth.hasAccount'));
     expect(screen.getByText('auth.welcomeBack')).toBeTruthy();
   });
-}); 
+});

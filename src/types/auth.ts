@@ -26,4 +26,4 @@ export interface AuthContextType extends AuthState {
   signIn: (credentials: AuthCredentials) => Promise<AuthResponse>;
   signOut: () => Promise<void>;
   resetPassword: (email: string) => Promise<{ error: Error | null }>;
-} 
+}

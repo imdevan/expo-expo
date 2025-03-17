@@ -32,4 +32,4 @@ describe('HomeScreen', () => {
     const welcomeText = getByText('Welcome!');
     expect(welcomeText.props.className).toBeTruthy();
   });
-}); 
+});

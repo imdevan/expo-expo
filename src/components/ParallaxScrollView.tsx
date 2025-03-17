@@ -44,21 +44,18 @@ export default function ParallaxScrollView({
   });
 
   return (
-    <ThemedView className="flex-1">
+    <ThemedView className='flex-1'>
       <Animated.ScrollView
         ref={scrollRef}
         scrollEventThrottle={16}
         scrollIndicatorInsets={{ bottom }}
         contentContainerStyle={{ paddingBottom: bottom }}>
         <Animated.View
-          className="h-[250px] overflow-hidden"
-          style={[
-            { backgroundColor: headerBackgroundColor[colorScheme] },
-            headerAnimatedStyle,
-          ]}>
+          className='h-[250px] overflow-hidden'
+          style={[{ backgroundColor: headerBackgroundColor[colorScheme] }, headerAnimatedStyle]}>
           {headerImage}
         </Animated.View>
-        <ThemedView className="flex-1 p-8 gap-4 overflow-hidden">{children}</ThemedView>
+        <ThemedView className='flex-1 gap-4 overflow-hidden p-8'>{children}</ThemedView>
       </Animated.ScrollView>
     </ThemedView>
   );

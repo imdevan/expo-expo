@@ -21,4 +21,4 @@ test('home page has expected content', async ({ page }) => {
 
   // Take a screenshot for visual verification
   await page.screenshot({ path: 'playwright-report/report-screenshots/home-page/home-page.png' });
-}); 
+});

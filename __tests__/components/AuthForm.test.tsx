@@ -105,10 +105,10 @@ describe('AuthForm', () => {
 
     const emailInput = screen.getByPlaceholderText('auth.email');
     const passwordInput = screen.getByPlaceholderText('auth.password');
-    
+
     fireEvent.changeText(emailInput, validFormData.email);
     fireEvent.changeText(passwordInput, validFormData.password);
-    
+
     const submitButton = screen.getByText('auth.signIn');
     fireEvent.press(submitButton);
 
@@ -129,10 +129,10 @@ describe('AuthForm', () => {
 
     const emailInput = screen.getByPlaceholderText('auth.email');
     const passwordInput = screen.getByPlaceholderText('auth.password');
-    
+
     fireEvent.changeText(emailInput, 'invalid-email');
     fireEvent.changeText(passwordInput, '123');
-    
+
     const submitButton = screen.getByText('auth.signIn');
     fireEvent.press(submitButton);
 
@@ -143,4 +143,4 @@ describe('AuthForm', () => {
 
     expect(mockOnSubmit).not.toHaveBeenCalled();
   });
-}); 
+});
