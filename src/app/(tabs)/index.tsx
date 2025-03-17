@@ -1,6 +1,7 @@
 import { Image, Platform, ScrollView } from 'react-native';
 import { useTranslation } from 'react-i18next';
 import React from 'react';
+import { View } from 'react-native';
 
 import { HelloWave } from '@/components/HelloWave';
 import { ThemedText } from '@/components/ThemedText';
@@ -28,10 +29,12 @@ export default function HomeScreen() {
           />
         </ThemedView>
         <ThemedView className='flex-1 gap-4 overflow-hidden p-8'>
-          <ThemedView className='flex-row items-center gap-2'>
-            <ThemedText type='title'>{t('common.welcome')}</ThemedText>
+          <View className='flex-row items-center gap-2'>
+            <View>
+              <ThemedText type='title'>{t('common.welcome')}</ThemedText>
+            </View>
             <HelloWave />
-          </ThemedView>
+          </View>
           <ThemedView className='mb-2 gap-2'>
             <ThemedText type='subtitle'>{t('home.tryIt.title')}</ThemedText>
             <ThemedText>

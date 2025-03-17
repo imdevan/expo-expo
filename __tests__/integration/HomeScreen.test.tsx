@@ -1,4 +1,5 @@
 import React from 'react';
+import { View } from 'react-native';
 import { render, fireEvent } from '@testing-library/react-native';
 import HomeScreen from '@/app/(tabs)/index';
 import { useBottomTabOverflow } from '@/components/ui/TabBarBackground';
@@ -31,6 +32,9 @@ jest.mock('react-i18next', () => ({
   }),
 }));
 
+// Mock moti module
+jest.mock('moti');
+
 describe('HomeScreen', () => {
   it('renders the welcome message', () => {
     const { getByText } = render(<HomeScreen />);
@@ -45,7 +49,6 @@ describe('HomeScreen', () => {
 
   it('renders the HelloWave component', () => {
     const { getByTestId } = render(<HomeScreen />);
-    // Note: You'll need to add testID="hello-wave" to your HelloWave component
     expect(getByTestId('hello-wave')).toBeTruthy();
   });
 

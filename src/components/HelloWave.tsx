@@ -1,32 +1,22 @@
-import { useEffect } from 'react';
-import { StyleSheet } from 'react-native';
-import Animated, {
-  useSharedValue,
-  useAnimatedStyle,
-  withTiming,
-  withRepeat,
-  withSequence,
-} from 'react-native-reanimated';
-
+import { MotiView } from 'moti';
+import { View } from 'react-native';
 import { ThemedText } from '@/components/ThemedText';
 
 export function HelloWave() {
-  const rotationAnimation = useSharedValue(0);
-
-  useEffect(() => {
-    rotationAnimation.value = withRepeat(
-      withSequence(withTiming(25, { duration: 150 }), withTiming(0, { duration: 150 })),
-      4 // Run the animation 4 times
-    );
-  }, []);
-
-  const animatedStyle = useAnimatedStyle(() => ({
-    transform: [{ rotate: `${rotationAnimation.value}deg` }],
-  }));
-
   return (
-    <Animated.View style={animatedStyle} testID='hello-wave'>
-      <ThemedText className='mt-[-6px] text-3xl leading-6'>👋</ThemedText>
-    </Animated.View>
+    <View className='relative flex-row items-center justify-center'>
+      <MotiView
+        from={{ rotate: '0deg' }}
+        animate={{ rotate: '25deg' }}
+        transition={{
+          type: 'timing',
+          duration: 300,
+          loop: true,
+          repeatReverse: true,
+        }}
+        testID='hello-wave'>
+        <ThemedText className='mt-[-6px] text-3xl leading-6'>👋</ThemedText>
+      </MotiView>
+    </View>
   );
 }

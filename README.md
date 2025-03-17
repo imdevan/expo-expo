@@ -60,9 +60,10 @@ Please feel free to drop a pull request or open an issue if you'd like to contri
 - [x] Final-Form integration
 - [x] Zod form validation
 - [x] Tailwind + Native support
+- [x] Moti animations
+- [x] Next.js wrapper for web deployments
 - [ ] Easy tailwind theme config
 - [ ] Clean up UI components
 - [ ] Abstract supabase service to be used easily with any backend
 - [ ] Basic settings page
-- [x] Next.js wrapper for web deployments
 - [ ] Easy deploy to web, android, and ios
