@@ -1,5 +1,5 @@
 import React from 'react';
-import { View, TouchableOpacity, StyleSheet, Dimensions, Platform } from 'react-native';
+import { View, TouchableOpacity, Dimensions, Platform } from 'react-native';
 import { MotiView } from 'moti';
 import { ThemedText } from './ThemedText';
 import { ThemedView } from './ThemedView';
@@ -136,24 +136,3 @@ export function HamburgerMenu({ isOpen, onClose }: HamburgerMenuProps) {
     </>
   );
 }
-
-const styles = StyleSheet.create({
-  menu: {
-    // position: 'absolute',
-    // top: 0,
-    // left: 0,
-    // bottom: 0,
-    // display: 'flex',
-    // width: MENU_WIDTH,
-    // backgroundColor: 'white',
-    // shadowColor: '#000',
-    // shadowOffset: {
-    //   width: 0,
-    //   height: 2,
-    // },
-    // shadowOpacity: 0.25,
-    // shadowRadius: 3.84,
-    // elevation: 5,
-    // zIndex: 1000,
-  },
-});

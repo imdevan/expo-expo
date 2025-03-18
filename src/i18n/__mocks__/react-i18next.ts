@@ -1,3 +1,4 @@
+/* eslint-disable @typescript-eslint/no-explicit-any */
 import en from '../locales/en';
 
 const useTranslation = () => {

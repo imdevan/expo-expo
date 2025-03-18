@@ -1,4 +1,4 @@
-import { Image, Platform, ScrollView } from 'react-native';
+import { Image, ScrollView } from 'react-native';
 import { useTranslation } from 'react-i18next';
 
 import { Collapsible } from '@/components/Collapsible';

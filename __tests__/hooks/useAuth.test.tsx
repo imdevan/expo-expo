@@ -1,5 +1,5 @@
 import React from 'react';
-import { renderHook, act } from '@testing-library/react-native';
+import { renderHook } from '@testing-library/react-native';
 import { useAuth } from '@/hooks/useAuth';
 import { AuthContext } from '@/providers/AuthProvider';
 

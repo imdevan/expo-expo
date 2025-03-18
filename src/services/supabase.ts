@@ -1,3 +1,5 @@
+/* eslint-disable @typescript-eslint/no-explicit-any */
+// TODO: define supabase user type
 import { createClient } from '@supabase/supabase-js';
 import { AuthCredentials, AuthResponse, User } from '@/types/auth';
 
