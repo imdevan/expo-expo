@@ -9,7 +9,6 @@ import { useSafeAreaInsets } from 'react-native-safe-area-context';
 import { IconSymbol } from './ui/IconSymbol';
 import { Colors } from '@/constants/Colors';
 import { useTheme } from '@/providers/ThemeProvider';
-// import { styled } from 'nativewind/styled';
 import { cssInterop } from 'nativewind';
 import cn from 'classnames';
 

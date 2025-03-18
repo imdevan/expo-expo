@@ -9,7 +9,7 @@ interface HeaderMenuButtonProps {
 export function HeaderMenuButton({ onPress }: HeaderMenuButtonProps) {
   return (
     <TouchableOpacity onPress={onPress} className='mx-4' testID='header-menu-button'>
-      <ThemedText className='text-3xl'>☰</ThemedText>
+      <ThemedText size='3xl'>☰</ThemedText>
     </TouchableOpacity>
   );
 }
