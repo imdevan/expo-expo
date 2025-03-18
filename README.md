@@ -64,8 +64,9 @@ Please feel free to drop a pull request or open an issue if you'd like to contri
 - [x] Next.js wrapper for web deployments
 - [x] Husky pre-push config
 - [x] Auto-format on Save
-- [ ] Easy tailwind theme config
-- [ ] Clean up UI components
+- [x] Dark Mode Toggle
+- [x] Easy tailwind typography config
+- [ ] Easier app theme configs
 - [ ] Abstract supabase service to be used easily with any backend
 - [ ] Basic settings page
 - [ ] Easy deploy to web, android, and ios
