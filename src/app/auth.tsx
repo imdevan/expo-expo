@@ -22,7 +22,7 @@ export default function AuthScreen() {
   };
 
   return (
-    <View className='mx-auto min-h-screen w-full flex-1 justify-center bg-gray-200 p-5 dark:bg-gray-900'>
+    <ThemedView variant='main' className='mx-auto min-h-screen w-full flex-1 justify-center p-5'>
       <View className='mx-auto w-[80%] max-w-xl'>
         <ThemedText type='title' className='mb-8 text-center'>
           {isLogin ? t('auth.welcomeBack') : t('auth.createAccount')}
@@ -36,6 +36,6 @@ export default function AuthScreen() {
           onToggleMode={() => setIsLogin(!isLogin)}
         />
       </View>
-    </View>
+    </ThemedView>
   );
 }
