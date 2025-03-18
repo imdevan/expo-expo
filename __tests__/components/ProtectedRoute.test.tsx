@@ -13,7 +13,7 @@ describe('ProtectedRoute', () => {
     jest.clearAllMocks();
   });
 
-  it('redirects to auth when unauthenticated user tries to access protected route', () => {
+  it('redirects to auth when unauthenticated user tries to access protected route', async () => {
     (useAuth as jest.Mock).mockReturnValue({
       user: null,
       isLoading: false,
@@ -26,10 +26,16 @@ describe('ProtectedRoute', () => {
       </ProtectedRoute>
     );
 
-    expect(mockRouter.replace).toHaveBeenCalledWith('/auth');
+    // Wait for the navigation to occur after the initial render and timeout
+    await waitFor(
+      () => {
+        expect(mockRouter.replace).toHaveBeenCalledWith('/auth');
+      },
+      { timeout: 150 } // Slightly longer than the component's timeout
+    );
   });
 
-  it('redirects to tabs when authenticated user tries to access auth', () => {
+  it('redirects to tabs when authenticated user tries to access auth', async () => {
     (useAuth as jest.Mock).mockReturnValue({
       user: mockUser,
       isLoading: false,
@@ -42,7 +48,13 @@ describe('ProtectedRoute', () => {
       </ProtectedRoute>
     );
 
-    expect(mockRouter.replace).toHaveBeenCalledWith('/(tabs)');
+    // Wait for the navigation to occur after the initial render and timeout
+    await waitFor(
+      () => {
+        expect(mockRouter.replace).toHaveBeenCalledWith('/(tabs)');
+      },
+      { timeout: 150 } // Slightly longer than the component's timeout
+    );
   });
 
   it('renders children when authenticated user accesses protected route', async () => {
@@ -58,16 +70,17 @@ describe('ProtectedRoute', () => {
       </ProtectedRoute>
     );
 
-    // Add a small delay to allow useEffect to complete
-    await new Promise((resolve) => setTimeout(resolve, 0));
-
-    await waitFor(() => {
-      expect(getByText('Protected Content')).toBeTruthy();
-      expect(mockRouter.replace).not.toHaveBeenCalled();
-    });
+    // Wait for the initial render and timeout to complete
+    await waitFor(
+      () => {
+        expect(getByText('Protected Content')).toBeTruthy();
+        expect(mockRouter.replace).not.toHaveBeenCalled();
+      },
+      { timeout: 150 }
+    );
   });
 
-  it('renders children when unauthenticated user accesses auth route', () => {
+  it('renders children when unauthenticated user accesses auth route', async () => {
     (useAuth as jest.Mock).mockReturnValue({
       user: null,
       isLoading: false,
@@ -80,11 +93,17 @@ describe('ProtectedRoute', () => {
       </ProtectedRoute>
     );
 
-    expect(getByText('Auth Content')).toBeTruthy();
-    expect(mockRouter.replace).not.toHaveBeenCalled();
+    // Wait for the initial render and timeout to complete
+    await waitFor(
+      () => {
+        expect(getByText('Auth Content')).toBeTruthy();
+        expect(mockRouter.replace).not.toHaveBeenCalled();
+      },
+      { timeout: 150 }
+    );
   });
 
-  it('does not redirect while loading', () => {
+  it('does not redirect while loading', async () => {
     (useAuth as jest.Mock).mockReturnValue({
       user: null,
       isLoading: true,
@@ -97,6 +116,12 @@ describe('ProtectedRoute', () => {
       </ProtectedRoute>
     );
 
-    expect(mockRouter.replace).not.toHaveBeenCalled();
+    // Wait for the initial render and timeout to complete
+    await waitFor(
+      () => {
+        expect(mockRouter.replace).not.toHaveBeenCalled();
+      },
+      { timeout: 150 }
+    );
   });
 });

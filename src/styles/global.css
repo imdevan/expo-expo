@@ -1,3 +1,28 @@
 @tailwind base;
 @tailwind components;
-@tailwind utilities; 
+@tailwind utilities;
+
+/* Typography */
+.text-main {
+  @apply dark:text-textgray-200 text-gray-900;
+}
+
+.text-primary {
+  @apply dark:text-primary-light text-primary;
+}
+
+.text-secondary {
+  @apply text-secondary dark:text-secondary-light;
+}
+
+.bg-main {
+  @apply bg-zinc-50 dark:bg-zinc-900;
+}
+
+.bg-primary {
+  @apply bg-purple-900 dark:bg-purple-700;
+}
+
+.bg-secondary {
+  @apply bg-blue-900 dark:bg-blue-700;
+}
