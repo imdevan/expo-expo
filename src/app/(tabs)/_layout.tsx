@@ -36,7 +36,6 @@ export default function TabLayout() {
             <TouchableOpacity onPress={() => router.push('/logout')} style={{ marginRight: 15 }}>
               <IconSymbol
                 name='rectangle.portrait.and.arrow.right'
-                size={24}
                 color={Colors[currentTheme ?? 'light'].text}
               />
             </TouchableOpacity>

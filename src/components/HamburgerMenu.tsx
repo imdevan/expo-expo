@@ -71,11 +71,7 @@ export function HamburgerMenu({ isOpen, onClose }: HamburgerMenuProps) {
               {t('menu.title')}
             </ThemedText>
             <TouchableOpacity onPress={onClose}>
-              <IconSymbol
-                name='xmark.circle.fill'
-                size={24}
-                color={Colors[currentTheme ?? 'light'].text}
-              />
+              <IconSymbol name='xmark.circle.fill' color={Colors[currentTheme ?? 'light'].text} />
             </TouchableOpacity>
           </View>
 
@@ -93,7 +89,7 @@ export function HamburgerMenu({ isOpen, onClose }: HamburgerMenuProps) {
                         : 'border-gray-200 dark:border-gray-700'
                     }`}
                     onPress={() => setTheme('light')}>
-                    <IconSymbol name='sun.max.fill' size={24} color={Colors[currentTheme].text} />
+                    <IconSymbol name='sun.max.fill' color={Colors[currentTheme].text} />
                     <ThemedText className='mt-1 text-sm'>{t('menu.light')}</ThemedText>
                   </TouchableOpacity>
                   <TouchableOpacity
@@ -103,7 +99,7 @@ export function HamburgerMenu({ isOpen, onClose }: HamburgerMenuProps) {
                         : 'border-gray-200 dark:border-gray-700'
                     }`}
                     onPress={() => setTheme('dark')}>
-                    <IconSymbol name='moon.fill' size={24} color={Colors[currentTheme].text} />
+                    <IconSymbol name='moon.fill' color={Colors[currentTheme].text} />
                     <ThemedText className='mt-1 text-sm'>{t('menu.dark')}</ThemedText>
                   </TouchableOpacity>
                   <TouchableOpacity
@@ -113,11 +109,7 @@ export function HamburgerMenu({ isOpen, onClose }: HamburgerMenuProps) {
                         : 'border-gray-200 dark:border-gray-700'
                     }`}
                     onPress={() => setTheme('system')}>
-                    <IconSymbol
-                      name='circle.lefthalf.filled'
-                      size={24}
-                      color={Colors[currentTheme].text}
-                    />
+                    <IconSymbol name='circle.lefthalf.filled' color={Colors[currentTheme].text} />
                     <ThemedText className='mt-1 text-sm'>{t('menu.auto')}</ThemedText>
                   </TouchableOpacity>
                 </View>
