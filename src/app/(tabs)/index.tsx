@@ -15,7 +15,7 @@ export default function HomeScreen() {
   const bottomTabOverflow = useBottomTabOverflow();
 
   return (
-    <ThemedView className='flex-1'>
+    <ThemedView variant='main' testID='home-screen' className='flex-1'>
       <ScrollView
         className='flex-1'
         contentContainerStyle={{

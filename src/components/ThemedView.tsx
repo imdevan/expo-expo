@@ -1,14 +1,33 @@
-import { View, type ViewProps } from 'react-native';
+import { View, ViewProps } from 'react-native';
+import { useTheme } from '@/providers/ThemeProvider';
+import cn from 'classnames';
 
-import { useThemeColor } from '@/hooks/useThemeColor';
+const variants = {
+  default: {
+    light: '',
+    dark: '',
+  },
+  main: {
+    light: 'bg-zinc-50',
+    dark: 'bg-zinc-900',
+  },
+  primary: {
+    light: 'bg-purple-50',
+    dark: 'bg-purple-900',
+  },
+  secondary: {
+    light: 'bg-blue-50',
+    dark: 'bg-blue-900',
+  },
+} as const;
 
-export type ThemedViewProps = ViewProps & {
-  lightColor?: string;
-  darkColor?: string;
-};
+type VariantKeys = keyof typeof variants;
 
-export function ThemedView({ style, lightColor, darkColor, ...otherProps }: ThemedViewProps) {
-  const backgroundColor = useThemeColor({ light: lightColor, dark: darkColor }, 'background');
+interface ThemedViewProps extends ViewProps {
+  variant?: VariantKeys;
+}
 
-  return <View style={[{ backgroundColor }, style]} {...otherProps} />;
+export function ThemedView({ variant = 'default', className, ...otherProps }: ThemedViewProps) {
+  const { currentTheme } = useTheme();
+  return <View className={cn(variants[variant][currentTheme], className)} {...otherProps} />;
 }

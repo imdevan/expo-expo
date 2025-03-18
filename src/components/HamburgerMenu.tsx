@@ -2,12 +2,16 @@ import React from 'react';
 import { View, TouchableOpacity, StyleSheet, Dimensions, Platform } from 'react-native';
 import { MotiView } from 'moti';
 import { ThemedText } from './ThemedText';
+import { ThemedView } from './ThemedView';
 import { useTranslation } from 'react-i18next';
 import { useAuth } from '@/hooks/useAuth';
 import { useSafeAreaInsets } from 'react-native-safe-area-context';
 import { IconSymbol } from './ui/IconSymbol';
 import { Colors } from '@/constants/Colors';
 import { useTheme } from '@/providers/ThemeProvider';
+// import { styled } from 'nativewind/styled';
+import { cssInterop } from 'nativewind';
+import cn from 'classnames';
 
 const { width } = Dimensions.get('window');
 const MENU_WIDTH = Platform.select({
@@ -19,6 +23,12 @@ interface HamburgerMenuProps {
   isOpen: boolean;
   onClose: () => void;
 }
+
+const StyledMotiView = cssInterop(MotiView, {
+  className: {
+    target: 'style',
+  },
+});
 
 export function HamburgerMenu({ isOpen, onClose }: HamburgerMenuProps) {
   const { t } = useTranslation();
@@ -39,9 +49,10 @@ export function HamburgerMenu({ isOpen, onClose }: HamburgerMenuProps) {
       )}
 
       {/* Menu */}
-      <MotiView
+      <StyledMotiView
         testID='hamburger-menu'
-        style={[styles.menu, { paddingTop: insets.top }]}
+        style={{ width: MENU_WIDTH }}
+        className={cn(`shadow-xxl absolute left-0 top-0 z-50 flex h-full flex-col`)}
         animate={{
           translateX: isOpen ? 0 : -MENU_WIDTH,
         }}
@@ -49,7 +60,11 @@ export function HamburgerMenu({ isOpen, onClose }: HamburgerMenuProps) {
           type: 'timing',
           duration: 300,
         }}>
-        <View className='flex h-full flex-col'>
+        <ThemedView
+          variant='main'
+          testID='hamburger-menu-content'
+          style={{ paddingTop: insets.top }}
+          className='h-full flex-1 flex-col'>
           {/* Header */}
           <View className='flex-row items-center justify-between border-b border-gray-200 p-4 dark:border-gray-700'>
             <ThemedText type='title' className='text-lg'>
@@ -124,28 +139,29 @@ export function HamburgerMenu({ isOpen, onClose }: HamburgerMenuProps) {
               </TouchableOpacity>
             </View>
           </View>
-        </View>
-      </MotiView>
+        </ThemedView>
+      </StyledMotiView>
     </>
   );
 }
 
 const styles = StyleSheet.create({
   menu: {
-    position: 'absolute',
-    top: 0,
-    left: 0,
-    bottom: 0,
-    width: MENU_WIDTH,
-    backgroundColor: 'white',
-    shadowColor: '#000',
-    shadowOffset: {
-      width: 0,
-      height: 2,
-    },
-    shadowOpacity: 0.25,
-    shadowRadius: 3.84,
-    elevation: 5,
-    zIndex: 1000,
+    // position: 'absolute',
+    // top: 0,
+    // left: 0,
+    // bottom: 0,
+    // display: 'flex',
+    // width: MENU_WIDTH,
+    // backgroundColor: 'white',
+    // shadowColor: '#000',
+    // shadowOffset: {
+    //   width: 0,
+    //   height: 2,
+    // },
+    // shadowOpacity: 0.25,
+    // shadowRadius: 3.84,
+    // elevation: 5,
+    // zIndex: 1000,
   },
 });

@@ -15,7 +15,7 @@ export default function TabTwoScreen() {
   const bottom = useBottomTabOverflow();
 
   return (
-    <ThemedView className='flex-1'>
+    <ThemedView variant='main' className='flex-1'>
       <ScrollView
         scrollEventThrottle={16}
         scrollIndicatorInsets={{ bottom }}
