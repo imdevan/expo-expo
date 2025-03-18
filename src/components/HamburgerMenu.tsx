@@ -14,7 +14,7 @@ import cn from 'classnames';
 
 const { width } = Dimensions.get('window');
 const MENU_WIDTH = Platform.select({
-  web: Math.min(width * 0.4, 400), // Smaller width on web, max 400px
+  web: Math.min(width * 0.8, 400), // Smaller width on web, max 400px
   default: width * 0.8, // Original width for mobile
 });
 
