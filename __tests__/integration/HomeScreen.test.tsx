@@ -1,8 +1,9 @@
 import React from 'react';
 import { View } from 'react-native';
-import { render, fireEvent } from '@testing-library/react-native';
+import { fireEvent } from '@testing-library/react-native';
 import HomeScreen from '@/app/(tabs)/index';
 import { useBottomTabOverflow } from '@/components/ui/TabBarBackground';
+import { renderWithProviders as render } from '__tests__/test-utils';
 
 // Mock the useBottomTabOverflow hook
 jest.mock('@/components/ui/TabBarBackground', () => ({

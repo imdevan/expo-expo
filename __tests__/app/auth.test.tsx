@@ -1,9 +1,10 @@
 import React from 'react';
-import { render, fireEvent, waitFor } from '@testing-library/react-native';
+import { fireEvent, waitFor } from '@testing-library/react-native';
 import Auth from '@/app/auth';
 import { useAuth } from '@/hooks/useAuth';
 import { mockUser, mockRouter } from '../setup';
 import en from '@/i18n/locales/en';
+import { renderWithProviders as render } from '__tests__/test-utils';
 
 // Mock the dependencies
 jest.mock('@/hooks/useAuth');

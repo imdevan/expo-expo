@@ -1,6 +1,7 @@
 import React from 'react';
-import { render, fireEvent, waitFor, screen } from '@testing-library/react-native';
+import { fireEvent, waitFor, screen } from '@testing-library/react-native';
 import { AuthForm } from '@/components/AuthForm';
+import { renderWithProviders as render } from '__tests__/test-utils';
 
 jest.mock('react-i18next', () => ({
   useTranslation: () => ({

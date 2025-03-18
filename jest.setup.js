@@ -57,4 +57,7 @@ jest.mock('expo-constants', () => ({
 // Mock react-i18next
 jest.mock('react-i18next');
 
-// Add other Jest setup configurations here
+// Mock AsyncStorage
+jest.mock('@react-native-async-storage/async-storage', () =>
+  require('@react-native-async-storage/async-storage/jest/async-storage-mock')
+);
