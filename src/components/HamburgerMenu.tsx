@@ -1,5 +1,5 @@
 import React from 'react';
-import { View, TouchableOpacity, StyleSheet, Dimensions } from 'react-native';
+import { View, TouchableOpacity, StyleSheet, Dimensions, Platform } from 'react-native';
 import { MotiView } from 'moti';
 import { ThemedText } from './ThemedText';
 import { useTranslation } from 'react-i18next';
@@ -10,7 +10,10 @@ import { Colors } from '@/constants/Colors';
 import { useTheme } from '@/providers/ThemeProvider';
 
 const { width } = Dimensions.get('window');
-const MENU_WIDTH = width * 0.8;
+const MENU_WIDTH = Platform.select({
+  web: Math.min(width * 0.4, 400), // Smaller width on web, max 400px
+  default: width * 0.8, // Original width for mobile
+});
 
 interface HamburgerMenuProps {
   isOpen: boolean;
@@ -46,65 +49,87 @@ export function HamburgerMenu({ isOpen, onClose }: HamburgerMenuProps) {
           type: 'timing',
           duration: 300,
         }}>
-        <View className='p-4'>
-          <ThemedText className='mb-4 text-xl font-bold'>{t('menu.title')}</ThemedText>
+        <View className='flex h-full flex-col'>
+          {/* Header */}
+          <View className='flex-row items-center justify-between border-b border-gray-200 p-4 dark:border-gray-700'>
+            <ThemedText type='title' className='text-lg'>
+              {t('menu.title')}
+            </ThemedText>
+            <TouchableOpacity onPress={onClose}>
+              <IconSymbol
+                name='xmark.circle.fill'
+                size={24}
+                color={Colors[currentTheme ?? 'light'].text}
+              />
+            </TouchableOpacity>
+          </View>
 
-          {/* Theme Switcher */}
-          <View className='mb-4'>
-            <ThemedText className='mb-2 text-lg font-semibold'>{t('menu.theme')}</ThemedText>
-            <View className='flex-row gap-2'>
+          {/* Menu Items */}
+          <View className='flex-1 p-4'>
+            <View className='flex h-full flex-col justify-between'>
+              {/* Theme Switcher */}
+              <View className='mb-4'>
+                <ThemedText className='mb-2 text-lg font-semibold'>{t('menu.theme')}</ThemedText>
+                <View className='flex-row gap-2'>
+                  <TouchableOpacity
+                    className={`flex-1 items-center rounded-lg border p-3 ${
+                      theme === 'light'
+                        ? 'border-primary bg-primary/10'
+                        : 'border-gray-200 dark:border-gray-700'
+                    }`}
+                    onPress={() => setTheme('light')}>
+                    <IconSymbol name='sun.max.fill' size={24} color={Colors[currentTheme].text} />
+                    <ThemedText className='mt-1 text-sm'>{t('menu.light')}</ThemedText>
+                  </TouchableOpacity>
+                  <TouchableOpacity
+                    className={`flex-1 items-center rounded-lg border p-3 ${
+                      theme === 'dark'
+                        ? 'border-primary bg-primary/10'
+                        : 'border-gray-200 dark:border-gray-700'
+                    }`}
+                    onPress={() => setTheme('dark')}>
+                    <IconSymbol name='moon.fill' size={24} color={Colors[currentTheme].text} />
+                    <ThemedText className='mt-1 text-sm'>{t('menu.dark')}</ThemedText>
+                  </TouchableOpacity>
+                  <TouchableOpacity
+                    className={`flex-1 items-center rounded-lg border p-3 ${
+                      theme === 'system'
+                        ? 'border-primary bg-primary/10'
+                        : 'border-gray-200 dark:border-gray-700'
+                    }`}
+                    onPress={() => setTheme('system')}>
+                    <IconSymbol
+                      name='circle.lefthalf.filled'
+                      size={24}
+                      color={Colors[currentTheme].text}
+                    />
+                    <ThemedText className='mt-1 text-sm'>{t('menu.auto')}</ThemedText>
+                  </TouchableOpacity>
+                </View>
+              </View>
+
+              {/* sign out */}
               <TouchableOpacity
-                className={`flex-1 items-center rounded-lg border p-3 ${
-                  theme === 'light'
-                    ? 'border-primary bg-primary/10'
-                    : 'border-gray-200 dark:border-gray-700'
-                }`}
-                onPress={() => setTheme('light')}>
-                <IconSymbol name='sun.max.fill' size={24} color={Colors[currentTheme].text} />
-                <ThemedText className='mt-1 text-sm'>{t('menu.light')}</ThemedText>
-              </TouchableOpacity>
-              <TouchableOpacity
-                className={`flex-1 items-center rounded-lg border p-3 ${
-                  theme === 'dark'
-                    ? 'border-primary bg-primary/10'
-                    : 'border-gray-200 dark:border-gray-700'
-                }`}
-                onPress={() => setTheme('dark')}>
-                <IconSymbol name='moon.fill' size={24} color={Colors[currentTheme].text} />
-                <ThemedText className='mt-1 text-sm'>{t('menu.dark')}</ThemedText>
-              </TouchableOpacity>
-              <TouchableOpacity
-                className={`flex-1 items-center rounded-lg border p-3 ${
-                  theme === 'system'
-                    ? 'border-primary bg-primary/10'
-                    : 'border-gray-200 dark:border-gray-700'
-                }`}
-                onPress={() => setTheme('system')}>
+                className='flex-row items-center space-x-3 rounded-lg p-3 hover:bg-gray-100 dark:hover:bg-gray-800'
+                onPress={() => {
+                  onClose();
+                  signOut();
+                }}>
                 <IconSymbol
-                  name='circle.lefthalf.filled'
-                  size={24}
-                  color={Colors[currentTheme].text}
+                  name='rectangle.portrait.and.arrow.right'
+                  size={20}
+                  color={Colors[currentTheme ?? 'light'].text}
                 />
-                <ThemedText className='mt-1 text-sm'>{t('menu.auto')}</ThemedText>
+                <ThemedText>{t('menu.signOut')}</ThemedText>
               </TouchableOpacity>
             </View>
           </View>
-
-          <TouchableOpacity
-            className='border-b border-gray-200 py-3 dark:border-gray-700'
-            onPress={() => {
-              onClose();
-              signOut();
-            }}>
-            <ThemedText className='text-lg'>{t('menu.signOut')}</ThemedText>
-          </TouchableOpacity>
         </View>
       </MotiView>
     </>
   );
 }
 
-// Using StyleSheet create to play nice with MotiView
 const styles = StyleSheet.create({
   menu: {
     position: 'absolute',
@@ -112,7 +137,7 @@ const styles = StyleSheet.create({
     left: 0,
     bottom: 0,
     width: MENU_WIDTH,
-    backgroundColor: '#fff',
+    backgroundColor: 'white',
     shadowColor: '#000',
     shadowOffset: {
       width: 0,

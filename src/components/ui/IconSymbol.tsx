@@ -16,6 +16,8 @@ const MAPPING = {
   'sun.max.fill': 'light-mode',
   'moon.fill': 'dark-mode',
   'circle.lefthalf.filled': 'auto-mode',
+  'xmark.circle.fill': 'close',
+  'rectangle.portrait.and.arrow.right': 'logout',
 } as Partial<
   Record<
     import('expo-symbols').SymbolViewProps['name'],
