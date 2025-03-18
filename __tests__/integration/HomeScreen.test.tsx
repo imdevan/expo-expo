@@ -10,11 +10,6 @@ jest.mock('@/components/ui/TabBarBackground', () => ({
   useBottomTabOverflow: () => 0,
 }));
 
-// Mock the useColorScheme hook
-jest.mock('@/hooks/useColorScheme', () => ({
-  useColorScheme: () => 'light',
-}));
-
 // Mock the useTranslation hook
 jest.mock('react-i18next', () => ({
   useTranslation: () => ({

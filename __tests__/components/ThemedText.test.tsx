@@ -2,11 +2,6 @@ import React from 'react';
 import { ThemedText } from '@/components/ThemedText';
 import { renderWithProviders as render } from '__tests__/test-utils';
 
-// Mock the useThemeColor hook
-jest.mock('@/hooks/useThemeColor', () => ({
-  useThemeColor: () => '#000000',
-}));
-
 describe('ThemedText', () => {
   it('renders with default props', () => {
     const { getByText } = render(<ThemedText>Hello World</ThemedText>);

@@ -7,11 +7,9 @@ import { ThemedText } from '@/components/ThemedText';
 import { ThemedView } from '@/components/ThemedView';
 import { IconSymbol } from '@/components/ui/IconSymbol';
 import { useBottomTabOverflow } from '@/components/ui/TabBarBackground';
-import { useColorScheme } from '@/hooks/useColorScheme';
 
 export default function TabTwoScreen() {
   const { t } = useTranslation();
-  const colorScheme = useColorScheme() ?? 'light';
   const bottom = useBottomTabOverflow();
 
   return (
@@ -20,9 +18,7 @@ export default function TabTwoScreen() {
         scrollEventThrottle={16}
         scrollIndicatorInsets={{ bottom }}
         contentContainerStyle={{ paddingBottom: bottom }}>
-        <ThemedView
-          className='h-[250px] overflow-hidden'
-          style={{ backgroundColor: colorScheme === 'light' ? '#D0D0D0' : '#353636' }}>
+        <ThemedView variant='primary' className='h-[250px] overflow-hidden'>
           <IconSymbol
             size={310}
             color='#808080'
@@ -83,7 +79,7 @@ export default function TabTwoScreen() {
           <Collapsible title={t('explore.sections.themes.title')}>
             <ThemedText>
               {t('explore.sections.themes.description', {
-                hook: <ThemedText type='defaultSemiBold'>useColorScheme()</ThemedText>,
+                hook: <ThemedText type='defaultSemiBold'>useTheme()</ThemedText>,
               })}
             </ThemedText>
             <ExternalLink href='https://docs.expo.dev/develop/user-interface/color-themes/'>

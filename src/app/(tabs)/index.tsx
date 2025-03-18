@@ -7,11 +7,9 @@ import { HelloWave } from '@/components/HelloWave';
 import { ThemedText } from '@/components/ThemedText';
 import { ThemedView } from '@/components/ThemedView';
 import { useBottomTabOverflow } from '@/components/ui/TabBarBackground';
-import { useColorScheme } from '@/hooks/useColorScheme';
 
 export default function HomeScreen() {
   const { t } = useTranslation();
-  const colorScheme = useColorScheme() ?? 'light';
   const bottomTabOverflow = useBottomTabOverflow();
 
   return (

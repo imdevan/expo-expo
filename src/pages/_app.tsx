@@ -1,14 +1,13 @@
 import { AppProps } from 'next/app';
 import { useEffect } from 'react';
-import { useColorScheme } from 'react-native';
-
+import { useTheme } from '@/providers/ThemeProvider';
 export default function App({ Component, pageProps }: AppProps) {
-  const colorScheme = useColorScheme();
+  const { currentTheme } = useTheme();
 
   useEffect(() => {
     // Add any global initialization logic here
-    document.documentElement.classList.toggle('dark', colorScheme === 'dark');
-  }, [colorScheme]);
+    document.documentElement.classList.toggle('dark', currentTheme === 'dark');
+  }, [currentTheme]);
 
   return <Component {...pageProps} />;
 }
