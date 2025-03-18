@@ -9,7 +9,7 @@ This is an [Expo](https://expo.dev) project created with [`create-expo-app`](htt
 
 The goal of this project is jump start Expo app development with all the bells and whistles that I would want to see in a production web app.
 
-Inspired by [Next Launch](https://github.com/imdevan/next-launch) and [Take Out](https://tamagui.dev/takeout)
+Inspired primarily by [Next Launch](https://github.com/imdevan/next-launch) and [Take Out](https://tamagui.dev/takeout).
 
 ## Get started
 
@@ -62,6 +62,8 @@ Please feel free to drop a pull request or open an issue if you'd like to contri
 - [x] Tailwind + Native support
 - [x] Moti animations
 - [x] Next.js wrapper for web deployments
+- [x] Husky pre-push config
+- [x] Auto-format on Save
 - [ ] Easy tailwind theme config
 - [ ] Clean up UI components
 - [ ] Abstract supabase service to be used easily with any backend
