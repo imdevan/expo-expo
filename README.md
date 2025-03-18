@@ -7,9 +7,13 @@
 
 This is an [Expo](https://expo.dev) project created with [`create-expo-app`](https://www.npmjs.com/package/create-expo-app).
 
-The goal of this project is jump start Expo app development with all the bells and whistles that I would want to see in a production web app.
+The goal of this project is jump start Expo app development with all the bells and whistles that I personally would want to see in a production web-first React Native app.
 
-Inspired primarily by [Next Launch](https://github.com/imdevan/next-launch) and [Take Out](https://tamagui.dev/takeout).
+Inspired primarily by [Next Launch](https://github.com/imdevan/next-launch), [Take Out](https://tamagui.dev/takeout), and [Next-js-Boilerplate](https://github.com/ixartz/Next-js-Boilerplate/tree/main).
+
+I've considered [Expo Boilerplate](https://github.com/Milvasoft/expo-boilerplate) and [React-Native-Boilerplate](https://github.com/thecodingmachine/react-native-boilerplate). But for various reasons neither of those met my specific needs or DX interests.
+
+Please consider using this boilerplate for you next React Native / React Native Web project if the features on [The Roadmap](#-roadmap-) seem interesting to you.
 
 ## Get started
 
@@ -34,18 +38,7 @@ In the output, you'll find options to open the app in a
 
 You can start developing by editing the files inside the **app** directory. This project uses [file-based routing](https://docs.expo.dev/router/introduction).
 
-## Learn more
-
-To learn more about developing your project with Expo, look at the following resources:
-
-- [Expo documentation](https://docs.expo.dev/): Learn fundamentals, or go into advanced topics with our [guides](https://docs.expo.dev/guides).
-- [Learn Expo tutorial](https://docs.expo.dev/tutorial/introduction/): Follow a step-by-step tutorial where you'll create a project that runs on Android, iOS, and the web.
-
-## Roadmap 🚧
-
-This project is just getting started and has some way to go until it's complete.
-
-Please feel free to drop a pull request or open an issue if you'd like to contribute!
+## 🥡 What's in the Box? 🥡
 
 - [x] Out of the box Expo project
 - [x] Connect to supabase
@@ -66,6 +59,15 @@ Please feel free to drop a pull request or open an issue if you'd like to contri
 - [x] Auto-format on Save
 - [x] Dark Mode Toggle
 - [x] Easy tailwind typography config
+
+## 🚧 Roadmap 🚧
+
+This project is just getting started and I plan to be actively readding features to
+this boilerplate as I use it to develop my next projects.
+
+[Please feel free to drop a pull request or open an issue if you'd like to contribute!](https://github.com/imdevan/expo-expo/issues/new/choose)
+
+- [x] Version 0 including features listed above 👆
 - [ ] Easier app theme configs
 - [ ] Abstract supabase service to be used easily with any backend
 - [ ] Basic settings page
