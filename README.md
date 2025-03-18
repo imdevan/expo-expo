@@ -13,7 +13,7 @@ Inspired primarily by [Next Launch](https://github.com/imdevan/next-launch), [Ta
 
 I've considered [Expo Boilerplate](https://github.com/Milvasoft/expo-boilerplate) and [React-Native-Boilerplate](https://github.com/thecodingmachine/react-native-boilerplate). But for various reasons neither of those met my specific needs or DX interests.
 
-Please consider using this boilerplate for you next React Native / React Native Web project if the features on [The Roadmap](#-roadmap-) seem interesting to you.
+Please consider using this boilerplate for you next React Native / React Native Web project if [the already included features](#-whats-in-the-box-) interesting to you.
 
 ## Get started
 
