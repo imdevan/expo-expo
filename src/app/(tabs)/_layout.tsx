@@ -1,26 +1,26 @@
 import { Tabs } from 'expo-router';
 import React, { useState } from 'react';
 import { Platform, TouchableOpacity } from 'react-native';
+import { useTheme } from '@/providers/ThemeProvider';
 import { router } from 'expo-router';
-import { View } from 'react-native';
 
 import { HapticTab } from '@/components/HapticTab';
 import { IconSymbol } from '@/components/ui/IconSymbol';
 import TabBarBackground from '@/components/ui/TabBarBackground';
 import { Colors } from '@/constants/Colors';
-import { useColorScheme } from '@/hooks/useColorScheme';
 import { HeaderMenuButton } from '@/components/HeaderMenuButton';
 import { HamburgerMenu } from '@/components/HamburgerMenu';
 
 export default function TabLayout() {
-  const colorScheme = useColorScheme();
   const [isMenuOpen, setIsMenuOpen] = useState(false);
+  const { currentTheme } = useTheme();
 
   return (
     <>
       <Tabs
         screenOptions={{
-          tabBarActiveTintColor: Colors[colorScheme ?? 'light'].tint,
+          tabBarActiveTintColor: Colors[currentTheme ?? 'light'].tabIconSelected,
+          tabBarInactiveTintColor: Colors[currentTheme ?? 'light'].tabIconDefault,
           headerShown: true,
           tabBarButton: HapticTab,
           tabBarBackground: TabBarBackground,
@@ -37,7 +37,7 @@ export default function TabLayout() {
               <IconSymbol
                 name='rectangle.portrait.and.arrow.right'
                 size={24}
-                color={Colors[colorScheme ?? 'light'].text}
+                color={Colors[currentTheme ?? 'light'].text}
               />
             </TouchableOpacity>
           ),
