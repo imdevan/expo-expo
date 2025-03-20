@@ -5,6 +5,7 @@ import { Form, Field } from 'react-final-form';
 import { z } from 'zod';
 import { useTranslation } from 'react-i18next';
 import cn from 'classnames';
+import { Button } from './ui/Button';
 
 const authSchema = z.object({
   email: z.string().min(1, 'Required').email('Invalid email format'),
@@ -99,18 +100,20 @@ export function AuthForm({ onSubmit, isLogin, isLoading, error, onToggleMode }: 
 
           {error && <ThemedText className='mt-1 text-xs text-error'>{error.message}</ThemedText>}
 
-          <TouchableOpacity
-            className='mt-2.5 items-center rounded-lg bg-primary p-4'
+          <Button
+            variant='primary'
+            className='mt-2.5'
+            size='lg'
             onPress={handleSubmit}
             disabled={isLoading}>
             {isLoading ? (
               <ActivityIndicator testID='loading-indicator' color='#fff' />
             ) : (
-              <ThemedText className='text-base font-semibold text-white'>
+              <ThemedText className='font-semibold'>
                 {isLogin ? t('auth.signIn') : t('auth.signUp')}
               </ThemedText>
             )}
-          </TouchableOpacity>
+          </Button>
 
           <TouchableOpacity className='mt-4 items-center' onPress={onToggleMode}>
             <ThemedText>{isLogin ? t('auth.noAccount') : t('auth.hasAccount')}</ThemedText>
