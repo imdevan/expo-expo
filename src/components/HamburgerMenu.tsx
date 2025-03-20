@@ -70,7 +70,7 @@ export function HamburgerMenu({ isOpen, onClose }: HamburgerMenuProps) {
               {t('menu.title')}
             </ThemedText>
             <TouchableOpacity onPress={onClose}>
-              <IconSymbol name='xmark.circle.fill' color={colors[currentTheme ?? 'light'].text} />
+              <IconSymbol name='xmark.circle.fill' color={colors[currentTheme].text} />
             </TouchableOpacity>
           </View>
 
@@ -124,7 +124,7 @@ export function HamburgerMenu({ isOpen, onClose }: HamburgerMenuProps) {
                 <IconSymbol
                   name='rectangle.portrait.and.arrow.right'
                   size={20}
-                  color={colors[currentTheme ?? 'light'].text}
+                  color={colors[currentTheme].text}
                 />
                 <ThemedText>{t('menu.signOut')}</ThemedText>
               </TouchableOpacity>

@@ -19,8 +19,8 @@ export default function TabLayout() {
     <>
       <Tabs
         screenOptions={{
-          tabBarActiveTintColor: colors[currentTheme ?? 'light'].tabIconSelected,
-          tabBarInactiveTintColor: colors[currentTheme ?? 'light'].tabIconDefault,
+          tabBarActiveTintColor: colors[currentTheme].tabIconSelected,
+          tabBarInactiveTintColor: colors[currentTheme].tabIconDefault,
           headerShown: true,
           tabBarButton: HapticTab,
           tabBarBackground: TabBarBackground,
@@ -36,7 +36,7 @@ export default function TabLayout() {
             <TouchableOpacity onPress={() => router.push('/logout')} style={{ marginRight: 15 }}>
               <IconSymbol
                 name='rectangle.portrait.and.arrow.right'
-                color={colors[currentTheme ?? 'light'].text}
+                color={colors[currentTheme].text}
               />
             </TouchableOpacity>
           ),
