@@ -12,6 +12,7 @@ type BaseButtonProps = Omit<TouchableOpacityProps, 'children'> & {
   variant?: keyof typeof styles.variants;
   size?: keyof typeof styles.sizes;
   icon?: IconSymbolName;
+  iconSize?: number;
   fullWidth?: boolean;
   labelProps?: ThemedTextProps;
   active?: boolean;
@@ -34,6 +35,7 @@ export const Button: React.FC<ButtonProps> = ({
   variant = 'primary',
   size = 'md',
   icon,
+  iconSize,
   label,
   labelProps,
   children,
@@ -57,7 +59,7 @@ export const Button: React.FC<ButtonProps> = ({
         className
       )}
       {...props}>
-      {icon && <IconSymbol name={icon} color={colors[currentTheme].text} />}
+      {icon && <IconSymbol name={icon} size={iconSize} color={colors[currentTheme].text} />}
       {label ? <ThemedText {...labelProps}>{label}</ThemedText> : children}
     </TouchableOpacity>
   );
