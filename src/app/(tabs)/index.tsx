@@ -4,8 +4,8 @@ import { useTranslation } from 'react-i18next';
 import { View } from 'react-native';
 
 import { HelloWave } from '@/components/HelloWave';
-import { ThemedText } from '@/components/ThemedText';
-import { ThemedView } from '@/components/ThemedView';
+import { ThemedText } from '@/components/ui/ThemedText';
+import { ThemedView } from '@/components/ui/ThemedView';
 import { useBottomTabOverflow } from '@/components/ui/TabBarBackground';
 
 export default function HomeScreen() {

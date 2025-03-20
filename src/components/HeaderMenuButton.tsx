@@ -1,6 +1,6 @@
 import React from 'react';
 import { TouchableOpacity } from 'react-native';
-import { ThemedText } from './ThemedText';
+import { ThemedText } from './ui/ThemedText';
 
 interface HeaderMenuButtonProps {
   onPress: () => void;

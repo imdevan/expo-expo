@@ -2,8 +2,8 @@ import React from 'react';
 import { View } from 'react-native';
 import { useAuth } from '@/hooks/useAuth';
 import { useRouter } from 'expo-router';
-import { ThemedText } from '@/components/ThemedText';
-import { ThemedView } from '@/components/ThemedView';
+import { ThemedText } from '@/components/ui/ThemedText';
+import { ThemedView } from '@/components/ui/ThemedView';
 import { useTranslation } from 'react-i18next';
 import { AuthForm, FormValues } from '@/components/AuthForm';
 

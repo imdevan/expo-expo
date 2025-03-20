@@ -1,6 +1,6 @@
 import React from 'react';
 import { View, TextInput, TouchableOpacity, ActivityIndicator } from 'react-native';
-import { ThemedText } from './ThemedText';
+import { ThemedText } from './ui/ThemedText';
 import { Form, Field } from 'react-final-form';
 import { z } from 'zod';
 import { useTranslation } from 'react-i18next';

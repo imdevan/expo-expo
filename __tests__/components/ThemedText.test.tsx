@@ -1,5 +1,5 @@
 import React from 'react';
-import { ThemedText } from '@/components/ThemedText';
+import { ThemedText } from '@/components/ui/ThemedText';
 import { renderWithProviders as render } from '__tests__/test-utils';
 
 describe('ThemedText', () => {

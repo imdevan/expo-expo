@@ -1,8 +1,8 @@
 import React from 'react';
 import { View, TouchableOpacity, Dimensions, Platform } from 'react-native';
 import { MotiView } from 'moti';
-import { ThemedText } from './ThemedText';
-import { ThemedView } from './ThemedView';
+import { ThemedText } from './ui/ThemedText';
+import { ThemedView } from './ui/ThemedView';
 import { useTranslation } from 'react-i18next';
 import { useAuth } from '@/hooks/useAuth';
 import { useSafeAreaInsets } from 'react-native-safe-area-context';

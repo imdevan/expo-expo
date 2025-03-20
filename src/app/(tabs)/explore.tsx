@@ -3,8 +3,8 @@ import { useTranslation } from 'react-i18next';
 
 import { Collapsible } from '@/components/Collapsible';
 import { ExternalLink } from '@/components/ExternalLink';
-import { ThemedText } from '@/components/ThemedText';
-import { ThemedView } from '@/components/ThemedView';
+import { ThemedText } from '@/components/ui/ThemedText';
+import { ThemedView } from '@/components/ui/ThemedView';
 import { IconSymbol } from '@/components/ui/IconSymbol';
 import { useBottomTabOverflow } from '@/components/ui/TabBarBackground';
 
