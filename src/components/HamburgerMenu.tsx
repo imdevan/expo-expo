@@ -82,16 +82,6 @@ export function HamburgerMenu({ isOpen, onClose }: HamburgerMenuProps) {
               <View className='mb-4'>
                 <ThemedText className='mb-2 text-lg font-semibold'>{t('menu.theme')}</ThemedText>
                 <View className='flex-row gap-2'>
-                  {/* <TouchableOpacity
-                    className={`flex-1 items-center rounded-lg border p-3 ${
-                      theme === 'light'
-                        ? 'border-primary bg-primary/10'
-                        : 'border-gray-200 dark:border-gray-700'
-                    }`}
-                    onPress={() => setTheme('light')}>
-                    <IconSymbol name='sun.max.fill' color={colors[currentTheme].text} />
-                    <ThemedText className='mt-1 text-sm'>{t('menu.light')}</ThemedText>
-                  </TouchableOpacity> */}
                   <Button
                     active={theme === 'light'}
                     className={cn(theme === 'light' && 'border-primary bg-primary/10')}
@@ -118,31 +108,17 @@ export function HamburgerMenu({ isOpen, onClose }: HamburgerMenuProps) {
               </View>
 
               {/* sign out */}
-
               <Button
                 inline
                 variant='ghost'
                 icon='rectangle.portrait.and.arrow.right'
-                // iconSize={20}
+                iconSize={20}
                 label={t('menu.signOut')}
                 onPress={() => {
                   onClose();
                   signOut();
                 }}
               />
-              {/* <TouchableOpacity
-                className='flex-row items-center space-x-3 rounded-lg p-3 '
-                onPress={() => {
-                  onClose();
-                  signOut();
-                }}>
-                <IconSymbol
-                  name='rectangle.portrait.and.arrow.right'
-                  size={20}
-                  color={colors[currentTheme].text}
-                />
-                <ThemedText></ThemedText>
-              </TouchableOpacity> */}
             </View>
           </View>
         </ThemedView>
