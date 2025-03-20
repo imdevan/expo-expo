@@ -4,7 +4,7 @@ import { TouchableOpacity } from 'react-native';
 import { ThemedText } from '@/components/ThemedText';
 import { ThemedView } from '@/components/ThemedView';
 import { IconSymbol } from '@/components/ui/IconSymbol';
-import { Colors } from '@/constants/Colors';
+import { colors } from '@/styles/colors';
 import { useTheme } from '@/providers/ThemeProvider';
 
 export function Collapsible({ children, title }: PropsWithChildren & { title: string }) {
@@ -21,7 +21,7 @@ export function Collapsible({ children, title }: PropsWithChildren & { title: st
           name='chevron.right'
           size={18}
           weight='medium'
-          color={currentTheme === 'light' ? Colors.light.icon : Colors.dark.icon}
+          color={currentTheme === 'light' ? colors.light.icon : colors.dark.icon}
           className={`transition-transform ${isOpen ? 'rotate-90' : 'rotate-0'}`}
         />
         <ThemedText type='defaultSemiBold'>{title}</ThemedText>

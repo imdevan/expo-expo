@@ -7,7 +7,7 @@ import { router } from 'expo-router';
 import { HapticTab } from '@/components/HapticTab';
 import { IconSymbol } from '@/components/ui/IconSymbol';
 import TabBarBackground from '@/components/ui/TabBarBackground';
-import { Colors } from '@/constants/Colors';
+import { colors } from '@/styles/colors';
 import { HeaderMenuButton } from '@/components/HeaderMenuButton';
 import { HamburgerMenu } from '@/components/HamburgerMenu';
 
@@ -19,8 +19,8 @@ export default function TabLayout() {
     <>
       <Tabs
         screenOptions={{
-          tabBarActiveTintColor: Colors[currentTheme ?? 'light'].tabIconSelected,
-          tabBarInactiveTintColor: Colors[currentTheme ?? 'light'].tabIconDefault,
+          tabBarActiveTintColor: colors[currentTheme ?? 'light'].tabIconSelected,
+          tabBarInactiveTintColor: colors[currentTheme ?? 'light'].tabIconDefault,
           headerShown: true,
           tabBarButton: HapticTab,
           tabBarBackground: TabBarBackground,
@@ -36,7 +36,7 @@ export default function TabLayout() {
             <TouchableOpacity onPress={() => router.push('/logout')} style={{ marginRight: 15 }}>
               <IconSymbol
                 name='rectangle.portrait.and.arrow.right'
-                color={Colors[currentTheme ?? 'light'].text}
+                color={colors[currentTheme ?? 'light'].text}
               />
             </TouchableOpacity>
           ),

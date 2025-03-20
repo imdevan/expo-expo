@@ -7,7 +7,7 @@ import { useTranslation } from 'react-i18next';
 import { useAuth } from '@/hooks/useAuth';
 import { useSafeAreaInsets } from 'react-native-safe-area-context';
 import { IconSymbol } from './ui/IconSymbol';
-import { Colors } from '@/constants/Colors';
+import { colors } from '@/styles/colors';
 import { useTheme } from '@/providers/ThemeProvider';
 import { cssInterop } from 'nativewind';
 import cn from 'classnames';
@@ -70,7 +70,7 @@ export function HamburgerMenu({ isOpen, onClose }: HamburgerMenuProps) {
               {t('menu.title')}
             </ThemedText>
             <TouchableOpacity onPress={onClose}>
-              <IconSymbol name='xmark.circle.fill' color={Colors[currentTheme ?? 'light'].text} />
+              <IconSymbol name='xmark.circle.fill' color={colors[currentTheme ?? 'light'].text} />
             </TouchableOpacity>
           </View>
 
@@ -88,7 +88,7 @@ export function HamburgerMenu({ isOpen, onClose }: HamburgerMenuProps) {
                         : 'border-gray-200 dark:border-gray-700'
                     }`}
                     onPress={() => setTheme('light')}>
-                    <IconSymbol name='sun.max.fill' color={Colors[currentTheme].text} />
+                    <IconSymbol name='sun.max.fill' color={colors[currentTheme].text} />
                     <ThemedText className='mt-1 text-sm'>{t('menu.light')}</ThemedText>
                   </TouchableOpacity>
                   <TouchableOpacity
@@ -98,7 +98,7 @@ export function HamburgerMenu({ isOpen, onClose }: HamburgerMenuProps) {
                         : 'border-gray-200 dark:border-gray-700'
                     }`}
                     onPress={() => setTheme('dark')}>
-                    <IconSymbol name='moon.fill' color={Colors[currentTheme].text} />
+                    <IconSymbol name='moon.fill' color={colors[currentTheme].text} />
                     <ThemedText className='mt-1 text-sm'>{t('menu.dark')}</ThemedText>
                   </TouchableOpacity>
                   <TouchableOpacity
@@ -108,7 +108,7 @@ export function HamburgerMenu({ isOpen, onClose }: HamburgerMenuProps) {
                         : 'border-gray-200 dark:border-gray-700'
                     }`}
                     onPress={() => setTheme('system')}>
-                    <IconSymbol name='circle.lefthalf.filled' color={Colors[currentTheme].text} />
+                    <IconSymbol name='circle.lefthalf.filled' color={colors[currentTheme].text} />
                     <ThemedText className='mt-1 text-sm'>{t('menu.auto')}</ThemedText>
                   </TouchableOpacity>
                 </View>
@@ -124,7 +124,7 @@ export function HamburgerMenu({ isOpen, onClose }: HamburgerMenuProps) {
                 <IconSymbol
                   name='rectangle.portrait.and.arrow.right'
                   size={20}
-                  color={Colors[currentTheme ?? 'light'].text}
+                  color={colors[currentTheme ?? 'light'].text}
                 />
                 <ThemedText>{t('menu.signOut')}</ThemedText>
               </TouchableOpacity>
