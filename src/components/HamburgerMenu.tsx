@@ -3,6 +3,7 @@ import { View, TouchableOpacity, Dimensions, Platform } from 'react-native';
 import { MotiView } from 'moti';
 import { ThemedText } from './ui/ThemedText';
 import { ThemedView } from './ui/ThemedView';
+import { Button } from './ui/Button';
 import { useTranslation } from 'react-i18next';
 import { useAuth } from '@/hooks/useAuth';
 import { useSafeAreaInsets } from 'react-native-safe-area-context';
@@ -81,7 +82,7 @@ export function HamburgerMenu({ isOpen, onClose }: HamburgerMenuProps) {
               <View className='mb-4'>
                 <ThemedText className='mb-2 text-lg font-semibold'>{t('menu.theme')}</ThemedText>
                 <View className='flex-row gap-2'>
-                  <TouchableOpacity
+                  {/* <TouchableOpacity
                     className={`flex-1 items-center rounded-lg border p-3 ${
                       theme === 'light'
                         ? 'border-primary bg-primary/10'
@@ -90,33 +91,47 @@ export function HamburgerMenu({ isOpen, onClose }: HamburgerMenuProps) {
                     onPress={() => setTheme('light')}>
                     <IconSymbol name='sun.max.fill' color={colors[currentTheme].text} />
                     <ThemedText className='mt-1 text-sm'>{t('menu.light')}</ThemedText>
-                  </TouchableOpacity>
-                  <TouchableOpacity
-                    className={`flex-1 items-center rounded-lg border p-3 ${
-                      theme === 'dark'
-                        ? 'border-primary bg-primary/10'
-                        : 'border-gray-200 dark:border-gray-700'
-                    }`}
+                  </TouchableOpacity> */}
+                  <Button
+                    active={theme === 'light'}
+                    className={cn(theme === 'light' && 'border-primary bg-primary/10')}
+                    variant='translucent'
+                    icon='sun.max.fill'
+                    onPress={() => setTheme('light')}>
+                    <ThemedText className='mt-1 text-sm'>{t('menu.light')}</ThemedText>
+                  </Button>
+                  <Button
+                    active={theme === 'dark'}
+                    variant='translucent'
+                    icon='moon.fill'
                     onPress={() => setTheme('dark')}>
-                    <IconSymbol name='moon.fill' color={colors[currentTheme].text} />
                     <ThemedText className='mt-1 text-sm'>{t('menu.dark')}</ThemedText>
-                  </TouchableOpacity>
-                  <TouchableOpacity
-                    className={`flex-1 items-center rounded-lg border p-3 ${
-                      theme === 'system'
-                        ? 'border-primary bg-primary/10'
-                        : 'border-gray-200 dark:border-gray-700'
-                    }`}
+                  </Button>
+                  <Button
+                    active={theme === 'system'}
+                    variant='translucent'
+                    icon='circle.lefthalf.filled'
                     onPress={() => setTheme('system')}>
-                    <IconSymbol name='circle.lefthalf.filled' color={colors[currentTheme].text} />
                     <ThemedText className='mt-1 text-sm'>{t('menu.auto')}</ThemedText>
-                  </TouchableOpacity>
+                  </Button>
                 </View>
               </View>
 
               {/* sign out */}
-              <TouchableOpacity
-                className='flex-row items-center space-x-3 rounded-lg p-3 hover:bg-gray-100 dark:hover:bg-gray-800'
+
+              <Button
+                inline
+                variant='ghost'
+                icon='rectangle.portrait.and.arrow.right'
+                // iconSize={20}
+                label={t('menu.signOut')}
+                onPress={() => {
+                  onClose();
+                  signOut();
+                }}
+              />
+              {/* <TouchableOpacity
+                className='flex-row items-center space-x-3 rounded-lg p-3 '
                 onPress={() => {
                   onClose();
                   signOut();
@@ -126,8 +141,8 @@ export function HamburgerMenu({ isOpen, onClose }: HamburgerMenuProps) {
                   size={20}
                   color={colors[currentTheme].text}
                 />
-                <ThemedText>{t('menu.signOut')}</ThemedText>
-              </TouchableOpacity>
+                <ThemedText></ThemedText>
+              </TouchableOpacity> */}
             </View>
           </View>
         </ThemedView>

@@ -3,7 +3,7 @@ import { useTheme } from '@/providers/ThemeProvider';
 import cn from 'classnames';
 import { base, variants, types } from '@/styles/typography';
 
-interface ThemedTextProps extends TextProps {
+export interface ThemedTextProps extends TextProps {
   variant?: keyof typeof variants;
   type?: keyof typeof types;
   size?: 'xs' | 'sm' | 'base' | 'lg' | 'xl' | '2xl' | '3xl' | '4xl';
