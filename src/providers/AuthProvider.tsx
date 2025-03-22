@@ -1,6 +1,6 @@
 import { createContext, useEffect, useState } from 'react';
 import { AuthContextType, AuthCredentials, AuthState } from '@/types/auth';
-import { supabaseAuth } from '@/services/supabase';
+import { fakeAuth } from '@/services/fakeAuth';
 
 export const AuthContext = createContext<AuthContextType | undefined>(undefined);
 
@@ -18,7 +18,7 @@ export function AuthProvider({ children }: { children: React.ReactNode }) {
 
   const checkUser = async () => {
     try {
-      const { user, error } = await supabaseAuth.getCurrentUser();
+      const { user, error } = await fakeAuth.getCurrentUser();
       setState({
         user,
         isLoading: false,
@@ -35,7 +35,7 @@ export function AuthProvider({ children }: { children: React.ReactNode }) {
 
   const signUp = async (credentials: AuthCredentials) => {
     setState((prev) => ({ ...prev, isLoading: true, error: null }));
-    const response = await supabaseAuth.signUp(credentials);
+    const response = await fakeAuth.signUp(credentials);
     setState((prev) => ({
       ...prev,
       user: response.user,
@@ -47,7 +47,7 @@ export function AuthProvider({ children }: { children: React.ReactNode }) {
 
   const signIn = async (credentials: AuthCredentials) => {
     setState((prev) => ({ ...prev, isLoading: true, error: null }));
-    const response = await supabaseAuth.signIn(credentials);
+    const response = await fakeAuth.signIn(credentials);
     setState((prev) => ({
       ...prev,
       user: response.user,
@@ -59,23 +59,12 @@ export function AuthProvider({ children }: { children: React.ReactNode }) {
 
   const signOut = async () => {
     setState((prev) => ({ ...prev, isLoading: true, error: null }));
-    await supabaseAuth.signOut();
+    await fakeAuth.signOut();
     setState({
       user: null,
       isLoading: false,
       error: null,
     });
-  };
-
-  const resetPassword = async (email: string) => {
-    setState((prev) => ({ ...prev, isLoading: true, error: null }));
-    const response = await supabaseAuth.resetPassword(email);
-    setState((prev) => ({
-      ...prev,
-      isLoading: false,
-      error: response.error,
-    }));
-    return response;
   };
 
   // Don't render children until initial auth check is complete
@@ -90,7 +79,6 @@ export function AuthProvider({ children }: { children: React.ReactNode }) {
         signUp,
         signIn,
         signOut,
-        resetPassword,
       }}>
       {children}
     </AuthContext.Provider>

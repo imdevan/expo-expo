@@ -3,18 +3,17 @@ import { View, Text } from 'react-native';
 import { render, renderHook, act } from '@testing-library/react-native';
 import { AuthProvider } from '@/providers/AuthProvider';
 import { useAuth } from '@/hooks/useAuth';
-import { supabaseAuth } from '@/services/supabase';
+import { fakeAuth } from '@/services/fakeAuth';
 import { mockUser } from '../setup';
 import { waitForStateUpdate } from '__tests__/utils';
 
-// Mock the dependencies
-jest.mock('@/services/supabase', () => ({
-  supabaseAuth: {
+// Mock the fakeAuth service
+jest.mock('@/services/fakeAuth', () => ({
+  fakeAuth: {
     getCurrentUser: jest.fn(),
     signIn: jest.fn(),
     signUp: jest.fn(),
     signOut: jest.fn(),
-    resetPassword: jest.fn(),
   },
 }));
 
@@ -34,7 +33,7 @@ const wait = (ms: number = 0) => new Promise((resolve) => setTimeout(resolve, ms
 describe('AuthProvider', () => {
   beforeEach(() => {
     jest.clearAllMocks();
-    (supabaseAuth.getCurrentUser as jest.Mock).mockResolvedValue({ user: null });
+    (fakeAuth.getCurrentUser as jest.Mock).mockResolvedValue({ user: null });
   });
 
   it('provides initial loading state', async () => {
@@ -52,7 +51,7 @@ describe('AuthProvider', () => {
 
   it('loads user on mount if authenticated', async () => {
     // Setup mock before rendering
-    (supabaseAuth.getCurrentUser as jest.Mock).mockResolvedValue({ user: mockUser });
+    (fakeAuth.getCurrentUser as jest.Mock).mockResolvedValue({ user: mockUser });
 
     const { getByTestId } = render(
       <AuthProvider>
@@ -71,7 +70,7 @@ describe('AuthProvider', () => {
     const actualContent = userElement.props.children;
 
     expect(getByTestId('loading')).toHaveTextContent('false');
-    expect(supabaseAuth.getCurrentUser).toHaveBeenCalled();
+    expect(fakeAuth.getCurrentUser).toHaveBeenCalled();
     expect(actualContent).toBe(JSON.stringify(mockUser));
   });
 
@@ -80,7 +79,7 @@ describe('AuthProvider', () => {
       user: mockUser,
       error: null,
     });
-    (supabaseAuth.signIn as jest.Mock).mockImplementation(signInMock);
+    (fakeAuth.signIn as jest.Mock).mockImplementation(signInMock);
 
     const { result } = renderHook(() => useAuth(), {
       wrapper: AuthProvider,
@@ -106,7 +105,7 @@ describe('AuthProvider', () => {
       user: mockUser,
       error: null,
     });
-    (supabaseAuth.signUp as jest.Mock).mockImplementation(signUpMock);
+    (fakeAuth.signUp as jest.Mock).mockImplementation(signUpMock);
 
     const { result } = renderHook(() => useAuth(), {
       wrapper: AuthProvider,
@@ -129,7 +128,7 @@ describe('AuthProvider', () => {
 
   it('handles sign out successfully', async () => {
     const signOutMock = jest.fn().mockResolvedValue(undefined);
-    (supabaseAuth.signOut as jest.Mock).mockImplementation(signOutMock);
+    (fakeAuth.signOut as jest.Mock).mockImplementation(signOutMock);
 
     const { result } = renderHook(() => useAuth(), {
       wrapper: AuthProvider,
@@ -147,34 +146,13 @@ describe('AuthProvider', () => {
     expect(result.current.error).toBeNull();
   });
 
-  it('handles reset password successfully', async () => {
-    const resetPasswordMock = jest.fn().mockResolvedValue({
-      error: null,
-    });
-    (supabaseAuth.resetPassword as jest.Mock).mockImplementation(resetPasswordMock);
-
-    const { result } = renderHook(() => useAuth(), {
-      wrapper: AuthProvider,
-    });
-
-    await waitForStateUpdate(100);
-
-    await act(async () => {
-      await result.current.resetPassword('test@example.com');
-      await wait(100);
-    });
-
-    expect(resetPasswordMock).toHaveBeenCalled();
-    expect(result.current.error).toBeNull();
-  });
-
   it('handles errors appropriately', async () => {
     const mockError = new Error('Test error');
     const signInMock = jest.fn().mockResolvedValue({
       user: null,
       error: mockError,
     });
-    (supabaseAuth.signIn as jest.Mock).mockImplementation(signInMock);
+    (fakeAuth.signIn as jest.Mock).mockImplementation(signInMock);
 
     const { result } = renderHook(() => useAuth(), {
       wrapper: AuthProvider,

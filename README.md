@@ -41,7 +41,6 @@ You can start developing by editing the files inside the **app** directory. This
 ## 🥡 What's in the Box? 🥡
 
 - [x] Out of the box Expo project
-- [x] Connect to supabase
 - [x] Authentication + auth page
 - [x] Jest config
 - [x] Unit tests
@@ -69,6 +68,5 @@ this boilerplate as I use it to develop my next projects.
 
 - [x] Version 0 including features listed above 👆
 - [ ] Easier app theme configs
-- [ ] Abstract supabase service to be used easily with any backend
 - [ ] Basic settings page
 - [ ] Easy deploy to web, android, and ios
