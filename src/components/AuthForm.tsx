@@ -1,6 +1,7 @@
 import React from 'react';
-import { View, TextInput, TouchableOpacity, ActivityIndicator } from 'react-native';
+import { View, TouchableOpacity, ActivityIndicator } from 'react-native';
 import { ThemedText } from './ui/ThemedText';
+import { ThemedTextInput } from './ui/ThemedTextInput';
 import { Form, Field } from 'react-final-form';
 import { z } from 'zod';
 import { useTranslation } from 'react-i18next';
@@ -58,18 +59,16 @@ export function AuthForm({ onSubmit, isLogin, isLoading, error, onToggleMode }: 
           <Field name='email'>
             {({ input, meta }) => (
               <View>
-                <TextInput
-                  className={cn(
-                    `rounded-lg bg-input p-4 text-base text-gray-200 placeholder:text-gray-400 dark:text-gray-200 ${
-                      meta.error && meta.touched ? 'border border-error' : ''
-                    }`
-                  )}
+                <ThemedTextInput
+                  testID='email-input'
                   placeholder={t('auth.email')}
                   autoCapitalize='none'
                   keyboardType='email-address'
                   onChangeText={input.onChange}
                   onBlur={() => input.onBlur()}
                   value={input.value}
+                  error={meta.error}
+                  touched={meta.touched}
                 />
                 {meta.error && meta.touched && (
                   <ThemedText className='mt-1 text-xs text-error'>{meta.error}</ThemedText>
@@ -81,15 +80,14 @@ export function AuthForm({ onSubmit, isLogin, isLoading, error, onToggleMode }: 
           <Field name='password'>
             {({ input, meta }) => (
               <View>
-                <TextInput
-                  className={`rounded-lg bg-black bg-input p-4 text-base text-gray-200 placeholder:text-gray-400 dark:text-gray-200 ${
-                    meta.error && meta.touched ? 'border border-error' : ''
-                  }`}
+                <ThemedTextInput
                   placeholder={t('auth.password')}
                   secureTextEntry
                   onChangeText={input.onChange}
                   onBlur={() => input.onBlur()}
                   value={input.value}
+                  error={meta.error}
+                  touched={meta.touched}
                 />
                 {meta.error && meta.touched && (
                   <ThemedText className='mt-1 text-xs text-error'>{meta.error}</ThemedText>
