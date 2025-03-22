@@ -13,20 +13,20 @@ const users: User[] = [
 // In-memory storage for sessions
 let currentUser: User | null = null;
 
-// Helper to transform user to our User type
-const transformUser = (user: User | null): User | null => {
-  if (!user) return null;
-  return {
-    id: user.id,
-    email: user.email,
-    createdAt: user.createdAt,
-    updatedAt: user.updatedAt,
-  };
-};
-
 export const fakeAuth = {
   signUp: async (credentials: AuthCredentials): Promise<AuthResponse> => {
     try {
+      // Validate credentials
+      if (!credentials.email || !credentials.password) {
+        throw new Error('Email and password are required');
+      }
+
+      // Validate email format
+      const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+      if (!emailRegex.test(credentials.email)) {
+        throw new Error('Invalid email format');
+      }
+
       // Check if user already exists
       const existingUser = users.find((user) => user.email === credentials.email);
       if (existingUser) {
@@ -45,7 +45,7 @@ export const fakeAuth = {
       currentUser = newUser;
 
       return {
-        user: transformUser(newUser),
+        user: newUser,
         error: null,
       };
     } catch (error) {
@@ -64,7 +64,7 @@ export const fakeAuth = {
         if (user) {
           currentUser = user;
           return {
-            user: transformUser(user),
+            user,
             error: null,
           };
         }
@@ -85,8 +85,11 @@ export const fakeAuth = {
 
   getCurrentUser: async (): Promise<AuthResponse> => {
     try {
+      if (currentUser === undefined) {
+        throw new Error('Invalid user state');
+      }
       return {
-        user: transformUser(currentUser),
+        user: currentUser,
         error: null,
       };
     } catch (error) {
