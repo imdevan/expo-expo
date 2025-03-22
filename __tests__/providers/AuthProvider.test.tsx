@@ -1,6 +1,6 @@
 import React from 'react';
 import { View, Text } from 'react-native';
-import { render, renderHook, act } from '@testing-library/react-native';
+import { render, renderHook, act, waitFor } from '@testing-library/react-native';
 import { AuthProvider } from '@/providers/AuthProvider';
 import { useAuth } from '@/hooks/useAuth';
 import { fakeAuth } from '@/services/fakeAuth';
@@ -18,11 +18,25 @@ jest.mock('@/services/fakeAuth', () => ({
 }));
 
 const TestComponent = () => {
-  const { user, isLoading } = useAuth();
+  const { user, isLoading, error, signIn, signUp, signOut } = useAuth();
   return (
     <View>
       <Text testID='loading'>{isLoading.toString()}</Text>
       <Text testID='user'>{user ? JSON.stringify(user) : 'null'}</Text>
+      <Text testID='error'>{error ? error.message : 'null'}</Text>
+      <Text
+        testID='signIn'
+        onPress={() => signIn({ email: 'test@example.com', password: 'password' })}>
+        Sign In
+      </Text>
+      <Text
+        testID='signUp'
+        onPress={() => signUp({ email: 'test@example.com', password: 'password' })}>
+        Sign Up
+      </Text>
+      <Text testID='signOut' onPress={() => signOut()}>
+        Sign Out
+      </Text>
     </View>
   );
 };
@@ -33,7 +47,7 @@ const wait = (ms: number = 0) => new Promise((resolve) => setTimeout(resolve, ms
 describe('AuthProvider', () => {
   beforeEach(() => {
     jest.clearAllMocks();
-    (fakeAuth.getCurrentUser as jest.Mock).mockResolvedValue({ user: null });
+    (fakeAuth.getCurrentUser as jest.Mock).mockResolvedValue({ user: null, error: null });
   });
 
   it('provides initial loading state', async () => {
@@ -51,7 +65,7 @@ describe('AuthProvider', () => {
 
   it('loads user on mount if authenticated', async () => {
     // Setup mock before rendering
-    (fakeAuth.getCurrentUser as jest.Mock).mockResolvedValue({ user: mockUser });
+    (fakeAuth.getCurrentUser as jest.Mock).mockResolvedValue({ user: mockUser, error: null });
 
     const { getByTestId } = render(
       <AuthProvider>
@@ -171,5 +185,140 @@ describe('AuthProvider', () => {
     expect(signInMock).toHaveBeenCalled();
     expect(result.current.user).toBeNull();
     expect(result.current.error).toEqual(mockError);
+  });
+
+  it('handles error in checkUser', async () => {
+    const mockError = new Error('Check user error');
+    (fakeAuth.getCurrentUser as jest.Mock).mockResolvedValue({ user: null, error: mockError });
+
+    const { getByTestId } = render(
+      <AuthProvider>
+        <TestComponent />
+      </AuthProvider>
+    );
+
+    await waitForStateUpdate(100);
+
+    expect(getByTestId('loading')).toHaveTextContent('false');
+    expect(getByTestId('user')).toHaveTextContent('null');
+    expect(getByTestId('error')).toHaveTextContent('Check user error');
+  });
+
+  it('handles thrown error in checkUser', async () => {
+    const mockError = new Error('Thrown error');
+    (fakeAuth.getCurrentUser as jest.Mock).mockRejectedValue(mockError);
+
+    const { getByTestId } = render(
+      <AuthProvider>
+        <TestComponent />
+      </AuthProvider>
+    );
+
+    await waitForStateUpdate(100);
+
+    expect(getByTestId('loading')).toHaveTextContent('false');
+    expect(getByTestId('user')).toHaveTextContent('null');
+    expect(getByTestId('error')).toHaveTextContent('Thrown error');
+  });
+
+  it('shows loading state during sign in', async () => {
+    const signInMock = jest.fn().mockImplementation(async () => {
+      await wait(100);
+      return { user: mockUser, error: null };
+    });
+    (fakeAuth.signIn as jest.Mock).mockImplementation(signInMock);
+
+    const { getByTestId, queryByTestId } = render(
+      <AuthProvider>
+        <TestComponent />
+      </AuthProvider>
+    );
+
+    await waitForStateUpdate(100);
+
+    await act(async () => {
+      getByTestId('signIn').props.onPress();
+    });
+
+    // Check that component is not rendered during loading
+    await waitFor(() => {
+      expect(queryByTestId('user')).toBeNull();
+    });
+
+    // Wait for the sign in to complete
+    await wait(100);
+
+    // Check that component is rendered and user is set
+    await waitFor(() => {
+      expect(queryByTestId('user')).not.toBeNull();
+      expect(getByTestId('user')).toHaveTextContent(JSON.stringify(mockUser));
+    });
+  });
+
+  it('shows loading state during sign up', async () => {
+    const signUpMock = jest.fn().mockImplementation(async () => {
+      await wait(100);
+      return { user: mockUser, error: null };
+    });
+    (fakeAuth.signUp as jest.Mock).mockImplementation(signUpMock);
+
+    const { getByTestId, queryByTestId } = render(
+      <AuthProvider>
+        <TestComponent />
+      </AuthProvider>
+    );
+
+    await waitForStateUpdate(100);
+
+    await act(async () => {
+      getByTestId('signUp').props.onPress();
+    });
+
+    // Check that component is not rendered during loading
+    await waitFor(() => {
+      expect(queryByTestId('user')).toBeNull();
+    });
+
+    // Wait for the sign up to complete
+    await wait(100);
+
+    // Check that component is rendered and user is set
+    await waitFor(() => {
+      expect(queryByTestId('user')).not.toBeNull();
+      expect(getByTestId('user')).toHaveTextContent(JSON.stringify(mockUser));
+    });
+  });
+
+  it('shows loading state during sign out', async () => {
+    const signOutMock = jest.fn().mockImplementation(async () => {
+      await wait(100);
+    });
+    (fakeAuth.signOut as jest.Mock).mockImplementation(signOutMock);
+
+    const { getByTestId, queryByTestId } = render(
+      <AuthProvider>
+        <TestComponent />
+      </AuthProvider>
+    );
+
+    await waitForStateUpdate(100);
+
+    await act(async () => {
+      getByTestId('signOut').props.onPress();
+    });
+
+    // Check that component is not rendered during loading
+    await waitFor(() => {
+      expect(queryByTestId('user')).toBeNull();
+    });
+
+    // Wait for the sign out to complete
+    await wait(100);
+
+    // Check that component is rendered and user is null
+    await waitFor(() => {
+      expect(queryByTestId('user')).not.toBeNull();
+      expect(getByTestId('user')).toHaveTextContent('null');
+    });
   });
 });
