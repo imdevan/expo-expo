@@ -1,5 +1,5 @@
-import React from 'react';
-import { View, TouchableOpacity, ActivityIndicator } from 'react-native';
+import React, { useRef } from 'react';
+import { View, TouchableOpacity, ActivityIndicator, TextInput } from 'react-native';
 import { ThemedText } from './ui/ThemedText';
 import { ThemedTextInput } from './ui/ThemedTextInput';
 import { Form, Field } from 'react-final-form';
@@ -40,6 +40,7 @@ interface AuthFormProps {
 
 export function AuthForm({ onSubmit, isLogin, isLoading, error, onToggleMode }: AuthFormProps) {
   const { t } = useTranslation();
+  const passwordRef = useRef<TextInput>(null);
 
   const handleSubmit = async (values: FormValues) => {
     try {
@@ -69,6 +70,8 @@ export function AuthForm({ onSubmit, isLogin, isLoading, error, onToggleMode }: 
                   value={input.value}
                   error={meta.error}
                   touched={meta.touched}
+                  returnKeyType='next'
+                  onSubmitEditing={() => passwordRef.current?.focus()}
                 />
                 {meta.error && meta.touched && (
                   <ThemedText className='mt-1 text-xs text-error'>{meta.error}</ThemedText>
@@ -81,6 +84,7 @@ export function AuthForm({ onSubmit, isLogin, isLoading, error, onToggleMode }: 
             {({ input, meta }) => (
               <View>
                 <ThemedTextInput
+                  ref={passwordRef}
                   placeholder={t('auth.password')}
                   secureTextEntry
                   onChangeText={input.onChange}
@@ -88,6 +92,8 @@ export function AuthForm({ onSubmit, isLogin, isLoading, error, onToggleMode }: 
                   value={input.value}
                   error={meta.error}
                   touched={meta.touched}
+                  returnKeyType='done'
+                  onSubmitEditing={handleSubmit}
                 />
                 {meta.error && meta.touched && (
                   <ThemedText className='mt-1 text-xs text-error'>{meta.error}</ThemedText>
