@@ -53,7 +53,6 @@ You can start developing by editing the files inside the **app** directory. This
 - [x] Zod form validation
 - [x] Tailwind + Native support
 - [x] Moti animations
-- [x] Next.js wrapper for web deployments
 - [x] Husky pre-push config
 - [x] Auto-format on Save
 - [x] Dark Mode Toggle
