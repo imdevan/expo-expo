@@ -1,6 +1,6 @@
 import React from 'react';
 import { Text } from 'react-native';
-import { render, screen, fireEvent, act } from '@testing-library/react-native';
+import { render, screen, act } from '@testing-library/react-native';
 import ErrorBoundary from '../../src/providers/ErrorBoundary';
 
 // Mock console.error to prevent error output in tests

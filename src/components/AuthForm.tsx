@@ -5,7 +5,6 @@ import { ThemedTextInput } from './ui/ThemedTextInput';
 import { Form, Field } from 'react-final-form';
 import { z } from 'zod';
 import { useTranslation } from 'react-i18next';
-import cn from 'classnames';
 import { Button } from './ui/Button';
 
 const authSchema = z.object({
